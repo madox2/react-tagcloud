@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {TagCloud, DefaultRenderer} from "../lib/index";
+import {TagCloud, DefaultRenderer} from "../src/index";
 
 const tags = [
     {
