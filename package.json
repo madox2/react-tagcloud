@@ -9,7 +9,10 @@
         "start": "webpack-dev-server --hot --inline"
     },
     "author": "madox2",
-    "license": "MIT",
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/madox2/react-tagcloud/blob/master/LICENSE"
+    },
     "dependencies": {
         "array-shuffle": "^1.0.0",
         "randomcolor": "^0.4.2",
