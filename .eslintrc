@@ -1,0 +1,29 @@
+{
+    "extends" : "eslint:recommended",
+    "ecmaFeatures": {
+        "jsx": true,
+        modules: true,
+    },
+    "plugins": [
+        "react"
+        ],
+
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+
+    "globals" : {
+        "dispatcher" : true,
+        "router" : true,
+        "io" : true,
+    },
+
+    "rules": {
+        "no-unused-vars": [1],
+        "quotes" : [0],
+        "no-console" : 0,
+        "comma-dangle" : 0
+    }
+}
