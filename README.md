@@ -50,11 +50,17 @@ React.render(
 or use custom renderer:
 
 ```javascript
-// renderer is function which takes tag, level, and item key as arguments and returns react element
-const customRenderer = (tag, level, key) => <span key={key} className={`tag-${level}`}>{tag.value}</span>;
+// renderer is function which takes tag, level,
+// and item key as arguments and returns react element
+const customRenderer = (tag, level, key) =>
+                        <span key={key} className={`tag-${level}`}>{tag.value}</span>;
 
 React.render(
     <TagCloud tags={data} levels={5} render={customRenderer} />
 );
 ```
+
+## License
+
+[MIT License](https://github.com/madox2/react-tagcloud/blob/master/LICENSE)
 
