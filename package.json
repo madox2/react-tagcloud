@@ -15,12 +15,16 @@
         "type": "MIT",
         "url": "https://github.com/madox2/react-tagcloud/blob/master/LICENSE"
     },
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/madox2/react-tagcloud.git"
+    },
     "dependencies": {
         "array-shuffle": "^1.0.0",
-        "randomcolor": "^0.4.2",
+        "randomcolor": "^0.4.2"
     },
     "devDependencies": {
-        "react": "^0.14.0"
+        "react": "^0.14.0",
         "react-dom": "^0.14.0",
         "webpack": "^1.12.2",
         "webpack-dev-server": "^1.12.1",
