@@ -9,18 +9,14 @@ const defaultStyles = {
     display: "inline-block"
 };
 
-const defaultFontSizeGenerator = level => `${0.8 + (level * 0.3)}em`;
-
 const defaultTagRenderer = value => value.value;
 
 const defaultRenderer = ({
-    fontSizeGenerator = defaultFontSizeGenerator,
     tagRenderer = defaultTagRenderer,
     randomColorOptions = {},
     props = {}
-}) => (tag, level, key) => {
-    const fontSize = fontSizeGenerator(level),
-          className = defaultClassName,
+}) => (tag, fontSize, key) => {
+    const className = defaultClassName,
           color = randomColor(randomColorOptions);
 
     const elementProps = Object.assign({}, {className}, props, {key});

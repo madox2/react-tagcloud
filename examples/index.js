@@ -19,5 +19,5 @@ const renderer = DefaultRenderer({
 });
 
 ReactDOM.render(
-    <TagCloud levels={5} tags={tags} style={{width: 300}} renderer={renderer} />, document.getElementById("examples")
+    <TagCloud minSize={12} maxSize={33} tags={tags} style={{width: 300}} renderer={renderer} />, document.getElementById("examples")
 );

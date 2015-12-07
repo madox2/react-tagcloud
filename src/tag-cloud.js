@@ -2,23 +2,24 @@ import React from "react";
 import DefaultRenderer from "./default-renderer";
 import arrayShuffle from "array-shuffle";
 
-const defaultLevelFunction = (tag, levels, min, max) => Math.round((tag.count - min) / ((max - min) / levels));
-
 const omittedElemProps = {
-    tags: undefined, levels: undefined, shuffle: undefined, levelFunction: undefined, renderer: undefined
+    tags: undefined, shuffle: undefined, renderer: undefined
 };
 
-function processTags({tags, levels, renderer, levelFunction}) {
+const fontSizeConverter = (count, min, max, minSize, maxSize) =>
+                             Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize) + 'px';
+
+function processTags({tags, minSize, maxSize, renderer}) {
     const counts = tags.map(tag => tag.count),
             min = Math.min.apply(Math, counts),
             max = Math.max.apply(Math, counts);
-    const computeLevel = tag => ({
+    const computeFontSize = tag => ({
         tag: tag,
-        level: levelFunction(tag, levels, min, max)
+        fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
     });
-    const createComponent = ({tag, level}, key) => renderer(tag, level, key);
-    return tags.map(computeLevel)
-                .map(createComponent);
+    const createComponent = ({tag, fontSize}, key) => renderer(tag, fontSize, key);
+    return tags.map(computeFontSize)
+               .map(createComponent);
 }
 
 export default class TagCloud extends React.Component {
@@ -35,16 +36,15 @@ export default class TagCloud extends React.Component {
 
 TagCloud.propTypes = {
     tags: React.PropTypes.array.isRequired,
-    levels: React.PropTypes.number.isRequired,
+    maxSize: React.PropTypes.number.isRequired,
+    minSize: React.PropTypes.number.isRequired,
     shuffle: React.PropTypes.bool,
-    levelFunction: React.PropTypes.func,
     renderer: React.PropTypes.func,
     className: React.PropTypes.string
 }
 
 TagCloud.defaultProps = {
     renderer: DefaultRenderer(),
-    levelFunction: defaultLevelFunction,
     shuffle: true,
     className: "tag-cloud"
 };
