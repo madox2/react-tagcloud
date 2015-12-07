@@ -11,8 +11,9 @@ const defaultStyles = {
 
 const defaultTagRenderer = value => value.value;
 
-const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} }) => (tag, fontSize, key) => {
+const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} }) => (tag, size, key) => {
     const className = defaultClassName,
+           fontSize = size + "px",
               color = randomColor(colorOptions);
 
     const elementProps = Object.assign({}, {className}, props, {key});

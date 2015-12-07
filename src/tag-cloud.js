@@ -7,7 +7,7 @@ const omittedElemProps = {
 };
 
 const fontSizeConverter = (count, min, max, minSize, maxSize) =>
-                             Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize) + "px";
+                             Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize);
 
 const processTags = ({tags, minSize, maxSize, renderer}) => {
     const counts = tags.map(tag => tag.count),
