@@ -9,7 +9,7 @@ const defaultStyles = {
     display: "inline-block"
 };
 
-const defaultTagRenderer = value => value.value;
+const defaultTagRenderer = tag => tag.value;
 
 const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} }) => (tag, size, key) => {
     const className = defaultClassName,
