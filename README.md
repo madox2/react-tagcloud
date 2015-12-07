@@ -9,6 +9,7 @@ npm install react-tagcloud
 
 ### Usage
 
+
 ```javascript
 // For ES5 use:
 // var TagCloud = require('react-tagcloud').TagCloud;
@@ -22,11 +23,14 @@ const data = [
     { value: "HTML5", count: 1 }, { value: "CSS3", count: 1 }
 ];
 
-React.render(
-    <TagCloud tags={data} minSize={12} maxSize={35} />
+ReactDOM.render(
+    <TagCloud tags={data} minSize={12} maxSize={35} />,
+    element
 );
 ```
+
 or modify behaviour of default renderer:
+
 
 ```javascript
 const renderer = new DefaultRenderer({
@@ -39,8 +43,9 @@ const renderer = new DefaultRenderer({
     }
 });
 
-React.render(
-    <TagCloud tags={data} minSize={12} maxSize={35} render={renderer} />
+ReactDOM.render(
+    <TagCloud tags={data} minSize={12} maxSize={35} render={renderer} />,
+    element
 );
 ```
 
@@ -51,12 +56,13 @@ const customRenderer = (tag, size, key) => {
     return <span key={key} className={`tag-${size}`}>{tag.value}</span>;
 };
 
-React.render(
-    <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />
+ReactDOM.render(
+    <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />,
+    element
 );
 ```
 
-see [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
+see more in [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
 
 ## License
 
