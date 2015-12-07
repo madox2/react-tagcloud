@@ -29,7 +29,7 @@ React.render(
 or modify behaviour of default renderer:
 
 ```javascript
-const renderer = DefaultRenderer({
+const renderer = new DefaultRenderer({
     props: {
         onClick: (e) => console.log("Hello word")
     },
@@ -47,14 +47,16 @@ React.render(
 or use custom renderer:
 
 ```javascript
-const customRenderer = (tag, fontSize, key) => {
-    return <span key={key} className={`tag-${fontSize}`}>{tag.value}</span>;
+const customRenderer = (tag, size, key) => {
+    return <span key={key} className={`tag-${size}`}>{tag.value}</span>;
 };
 
 React.render(
-    <TagCloud tags={data} minSize={1} maxSize={5} render={customRenderer} />
+    <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />
 );
 ```
+
+see [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
 
 ## License
 
