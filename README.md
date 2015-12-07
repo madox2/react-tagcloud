@@ -17,10 +17,10 @@ npm install react-tagcloud
 import {TagCloud, DefaultRenderer} from "react-tagcloud";
 
 const data = [
-    { value: "jQuery", count: 2 }, { value: "SQL", count: 2 },
-    { value: "JavaScript", count: 4 }, { value: "React", count: 3 },
-    { value: "Nodejs", count: 4 }, { value: "Express.js", count: 2 },
-    { value: "HTML5", count: 1 }, { value: "CSS3", count: 1 }
+    { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
+    { value: "JavaScript", count: 38 }, { value: "React", count: 30 },
+    { value: "Nodejs", count: 28 }, { value: "Express.js", count: 25 },
+    { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
 ReactDOM.render(
