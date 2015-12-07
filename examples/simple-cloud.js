@@ -12,6 +12,7 @@ const data = [
 ReactDOM.render(
     // minSize, maxSize - font size in px
     // tags - array of objects with properties value and count
+    // shuffle - indicates if data should be shuffled (true by default)
     <TagCloud minSize={12} maxSize={35} tags={data} />,
     document.getElementById("simple-cloud")
 );

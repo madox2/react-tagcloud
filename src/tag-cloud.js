@@ -20,7 +20,7 @@ const processTags = ({tags, minSize, maxSize, renderer}) => {
     const createComponent = ({tag, fontSize}, key) => renderer(tag, fontSize, key);
     return tags.map(computeFontSize)
                .map(createComponent);
-}
+};
 
 export default class TagCloud extends React.Component {
     render() {
