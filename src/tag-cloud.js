@@ -9,10 +9,10 @@ const omittedElemProps = {
 const fontSizeConverter = (count, min, max, minSize, maxSize) =>
                              Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize) + 'px';
 
-function processTags({tags, minSize, maxSize, renderer}) {
+const processTags = ({tags, minSize, maxSize, renderer}) => {
     const counts = tags.map(tag => tag.count),
-            min = Math.min.apply(Math, counts),
-            max = Math.max.apply(Math, counts);
+             min = Math.min.apply(Math, counts),
+             max = Math.max.apply(Math, counts);
     const computeFontSize = tag => ({
         tag: tag,
         fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
@@ -41,7 +41,7 @@ TagCloud.propTypes = {
     shuffle: React.PropTypes.bool,
     renderer: React.PropTypes.func,
     className: React.PropTypes.string
-}
+};
 
 TagCloud.defaultProps = {
     renderer: DefaultRenderer(),
