@@ -3,7 +3,7 @@ import DefaultRenderer from "./default-renderer";
 import arrayShuffle from "array-shuffle";
 
 const omittedElemProps = {
-    tags: undefined, shuffle: undefined, renderer: undefined
+    tags: undefined, shuffle: undefined, renderer: undefined, maxSize: undefined, minSize: undefined
 };
 
 const fontSizeConverter = (count, min, max, minSize, maxSize) =>
