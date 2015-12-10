@@ -11,7 +11,7 @@ const defaultStyles = {
 
 const defaultTagRenderer = tag => tag.value;
 
-const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} }) => (tag, size, key) => {
+export default ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} } = {}) => (tag, size, key) => {
     const className = defaultClassName,
            fontSize = size + "px",
               color = randomColor(colorOptions);
@@ -21,6 +21,4 @@ const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, 
 
     return <span {...elementProps}>{tagRenderer(tag)}</span>;
 };
-
-export default options => defaultRenderer(options ? options : {});
 
