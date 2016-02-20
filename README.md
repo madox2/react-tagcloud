@@ -1,5 +1,7 @@
 #react-tagcloud
-Tag/word cloud React component.
+Simple tag/word cloud React component.
+
+![preview tag-cloud preview](http://s27.postimg.org/ki0u7pe83/preview.png)
 
 ### Installation
 
@@ -35,7 +37,7 @@ or modify behaviour of default renderer:
 ```javascript
 const renderer = new DefaultRenderer({
     props: {
-        onClick: (e) => console.log("Hello word")
+        onClick: (e) => console.log("Hello world")
     },
     colorOptions: {
         luminosity: 'light',
