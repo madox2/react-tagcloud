@@ -49,7 +49,7 @@ ReactDOM.render(
     <TagCloud minSize={12}
               maxSize={35}
               tags={data}
-              renderer={customizedDefaultRenderer} />,
+              renderer={renderer} />,
     document.getElementById("custom-renderer-options")
 );
 
