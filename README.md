@@ -31,7 +31,7 @@ ReactDOM.render(
     document.getElementById("basic-cloud")
 );
 
-// custom renderer options - adds custom props and custom color options
+// custom options - adds custom props and custom color options
 const renderer = new DefaultRenderer({
     props: {
         style: {border: '1px solid silver', padding: '5px'},
