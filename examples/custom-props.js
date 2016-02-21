@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {TagCloud, DefaultRenderer} from "../src/index";
+import {TagCloud} from "../src/index";
 
 const data = [
     { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -11,13 +11,12 @@ const data = [
 
 ReactDOM.render(
     // any other props will be applied on TagCloud root component
-    // e.g. style, className and onMouseOver
+    // e.g. style and className
     <TagCloud minSize={12}
               maxSize={35}
               tags={data}
               style={{width: 300}}
-              className="myTagCloud"
-              onMouseOver={(e) => console.log("moving over tagcloud")} />,
+              className="myTagCloud" />,
 
     document.getElementById("custom-props")
 );

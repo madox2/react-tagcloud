@@ -21,7 +21,7 @@
     },
 
     "rules": {
-        "no-unused-vars": [1],
+        "no-unused-vars": [2, {"varsIgnorePattern": "React"}],
         "quotes" : [0],
         "no-console" : 0,
         "comma-dangle" : 0

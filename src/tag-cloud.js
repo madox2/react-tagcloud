@@ -2,14 +2,13 @@ import React from "react";
 import DefaultRenderer from "./default-renderer";
 import arrayShuffle from "array-shuffle";
 
-const omittedElemProps = {
-    tags: undefined, shuffle: undefined, renderer: undefined, maxSize: undefined, minSize: undefined
-};
+const omitted = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'onClick'];
+const omittedProps = omitted.reduce((r, k) => Object.assign(r, {[k]: undefined}), {});
 
 const fontSizeConverter = (count, min, max, minSize, maxSize) =>
                              Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize);
 
-const processTags = ({tags, minSize, maxSize, renderer}) => {
+const createTags = ({tags, minSize, maxSize, renderer, onClick}) => {
     const counts = tags.map(tag => tag.count),
              min = Math.min.apply(Math, counts),
              max = Math.max.apply(Math, counts);
@@ -17,15 +16,16 @@ const processTags = ({tags, minSize, maxSize, renderer}) => {
         tag: tag,
         fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
     });
-    const createComponent = ({tag, fontSize}, key) => renderer(tag, fontSize, key);
+    const handlers = {onClick};
+    const createComponent = ({tag, fontSize}, key) => renderer(tag, fontSize, key, handlers);
     return tags.map(computeFontSize)
                .map(createComponent);
 };
 
 export default class TagCloud extends React.Component {
     render() {
-        const props = Object.assign({}, this.props, omittedElemProps);
-        const tags = processTags(this.props);
+        const props = Object.assign({}, this.props, omittedProps);
+        const tags = createTags(this.props);
         return (
             <div {...props}>
                 {this.props.shuffle ? arrayShuffle(tags) : tags}

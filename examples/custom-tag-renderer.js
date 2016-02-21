@@ -20,7 +20,10 @@ const tagRenderer = tag => (<a href={tag.value.link}>{tag.value.name}</a>);
 const customizedDefaultRenderer = new DefaultRenderer({ tagRenderer });
 
 ReactDOM.render(
-    <TagCloud minSize={12} maxSize={35} tags={data} renderer={customizedDefaultRenderer} />,
+    <TagCloud minSize={12}
+              maxSize={35}
+              tags={data}
+              renderer={customizedDefaultRenderer} />,
     document.getElementById("custom-tag-renderer")
 );
 

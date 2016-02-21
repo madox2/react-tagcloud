@@ -13,9 +13,6 @@ npm install react-tagcloud
 
 
 ```javascript
-// For ES5 use:
-// var TagCloud = require('react-tagcloud').TagCloud;
-// var DefaultRenderer = require('react-tagcloud').DefaultRenderer;
 import {TagCloud, DefaultRenderer} from "react-tagcloud";
 
 const data = [
@@ -26,18 +23,21 @@ const data = [
 ];
 
 ReactDOM.render(
-    <TagCloud tags={data} minSize={12} maxSize={35} />,
+    <TagCloud minSize={12}
+              maxSize={35}
+              tags={data}
+              onClick={tag => console.log('clicking on tag:', tag)} />,
     element
 );
 ```
 
 or modify behaviour of default renderer:
 
-
 ```javascript
 const renderer = new DefaultRenderer({
     props: {
-        onClick: (e) => console.log("Hello world")
+        style: {border: '1px solid silver', padding: '5px'},
+        className: 'my-tag-class'
     },
     colorOptions: {
         luminosity: 'light',
@@ -46,7 +46,10 @@ const renderer = new DefaultRenderer({
 });
 
 ReactDOM.render(
-    <TagCloud tags={data} minSize={12} maxSize={35} render={renderer} />,
+    <TagCloud minSize={12}
+              maxSize={35}
+              tags={data}
+              renderer={customizedDefaultRenderer} />,
     element
 );
 ```
@@ -59,12 +62,17 @@ const customRenderer = (tag, size, key) => {
 };
 
 ReactDOM.render(
-    <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />,
+    <TagCloud tags={data}
+              minSize={1}
+              maxSize={5}
+              renderer={customRenderer} />,
     element
 );
 ```
 
-see more in [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
+Color of tags is computed with [randomColor](https://github.com/davidmerfield/randomColor).
+
+See more in [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
 
 ## License
 

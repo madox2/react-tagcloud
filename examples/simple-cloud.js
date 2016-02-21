@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {TagCloud, DefaultRenderer} from "../src/index";
+import {TagCloud} from "../src/index";
 
 const data = [
     { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -13,7 +13,11 @@ ReactDOM.render(
     // minSize, maxSize - font size in px
     // tags - array of objects with properties value and count
     // shuffle - indicates if data should be shuffled (true by default)
-    <TagCloud minSize={12} maxSize={35} tags={data} />,
+    // onClick event handler has `tag` and `event` parameter
+    <TagCloud minSize={12}
+              maxSize={35}
+              tags={data}
+              onClick={tag => console.log('clicking on tag:', tag)} />,
     document.getElementById("simple-cloud")
 );
 

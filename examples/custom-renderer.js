@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {TagCloud, DefaultRenderer} from "../src/index";
+import {TagCloud} from "../src/index";
 
 const data = [
     { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -18,7 +18,10 @@ const customRenderer = (tag, size, key) => {
 };
 
 ReactDOM.render(
-    <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />,
+    <TagCloud tags={data}
+              minSize={1}
+              maxSize={5}
+              renderer={customRenderer} />,
     document.getElementById("custom-renderer")
 );
 

@@ -14,7 +14,8 @@ const data = [
 
 // custom props will be applied on each tag component
 const props = {
-    onClick: (e) => console.log("clicking on tag!")
+    style: {border: '1px solid silver', padding: '5px'},
+    className: 'my-tag-class'
 };
 
 // custom random color options
@@ -27,7 +28,10 @@ const colorOptions = {
 const customizedDefaultRenderer = new DefaultRenderer({ props, colorOptions });
 
 ReactDOM.render(
-    <TagCloud minSize={12} maxSize={35} tags={data} renderer={customizedDefaultRenderer} />,
+    <TagCloud minSize={12}
+              maxSize={35}
+              tags={data}
+              renderer={customizedDefaultRenderer} />,
     document.getElementById("default-renderer")
 );
 
