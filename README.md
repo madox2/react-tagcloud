@@ -63,9 +63,8 @@ ReactDOM.render(
 );
 ```
 
-Color of tags is computed with [randomColor](https://github.com/davidmerfield/randomColor).
-
-See more in [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
+* Color of tags is computed with [randomColor](https://github.com/davidmerfield/randomColor).
+* See more in [./examples](https://github.com/madox2/react-tagcloud/tree/master/examples)
 
 ## License
 
