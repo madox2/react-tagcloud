@@ -22,18 +22,18 @@ const data = [
     { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
+// creates tag cloud with max - min font size and onClick event handler
+
 ReactDOM.render(
     <TagCloud minSize={12}
               maxSize={35}
               tags={data}
               onClick={tag => console.log('clicking on tag:', tag)} />,
-    element
+    document.getElementById("basic-cloud")
 );
-```
 
-or modify behaviour of default renderer:
+// modifies behaviour of default renderer - adds custom props and custom color options
 
-```javascript
 const renderer = new DefaultRenderer({
     props: {
         style: {border: '1px solid silver', padding: '5px'},
@@ -50,13 +50,11 @@ ReactDOM.render(
               maxSize={35}
               tags={data}
               renderer={customizedDefaultRenderer} />,
-    element
+    document.getElementById("custom-renderer-options")
 );
-```
 
-or use custom renderer:
+// tag-cloud using custom renderer
 
-```javascript
 const customRenderer = (tag, size, key) => {
     return <span key={key} className={`tag-${size}`}>{tag.value}</span>;
 };
@@ -66,7 +64,7 @@ ReactDOM.render(
               minSize={1}
               maxSize={5}
               renderer={customRenderer} />,
-    element
+    document.getElementById("custom-renderer")
 );
 ```
 
