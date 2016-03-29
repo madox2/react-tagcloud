@@ -16,7 +16,7 @@ export default ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {
                                                              (tag, size, key, handlers = {}) => {
     const className = defaultClassName,
            fontSize = size + "px",
-              color = randomColor(colorOptions);
+              color = props.disableRandomColor ? tag.color || 'black' : randomColor(colorOptions);
 
     const eventHandlers = {};
     Object.keys(handlers).forEach(key => handlers[key] && (eventHandlers[key] = (e) => handlers[key](tag, e)));
