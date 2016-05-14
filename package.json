@@ -9,7 +9,7 @@
     "test": "npm run test",
     "build": "webpack --progress --profile --colors",
     "start": "webpack-dev-server --hot --inline",
-    "lint": "eslint src/**"
+    "lint": "eslint ."
   },
   "author": "madox2",
   "license": {

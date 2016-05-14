@@ -9,6 +9,7 @@
     },
     "env": {
         "browser": true,
+        "node": true,
         "es6": true
     },
     "plugins": [
@@ -16,6 +17,7 @@
     ],
     "rules": {
         "quotes": [0],
-        "react/jsx-uses-react": 1
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1
     }
 }

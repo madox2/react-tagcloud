@@ -7,18 +7,18 @@ module.exports = {
     },
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist",
+        path: __dirname + "/dist"
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ["react-hot", "babel-loader"],
+                loaders: ["react-hot", "babel-loader"]
             },
             {
                 test: /\.html$/,
-                loaders: ["react-hot", "file?name=[name].[ext]"],
+                loaders: ["react-hot", "file?name=[name].[ext]"]
             }
         ]
     }
