@@ -12,7 +12,7 @@ const defaultStyles = {
 const defaultTagRenderer = tag => tag.value;
 
 
-export default ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} } = {}) => (tag, size, key, handlers = {}) => {
+export const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions = {}, props = {} } = {}) => (tag, size, key, handlers = {}) => {
   const className = defaultClassName,
         fontSize = size + "px",
         color = props.disableRandomColor ? tag.color || 'black' : randomColor(colorOptions);

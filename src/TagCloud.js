@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultRenderer from "./default-renderer";
+import { defaultRenderer } from "./defaultRenderer";
 import arrayShuffle from "array-shuffle";
 
 const omitted = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'onClick'];
@@ -22,7 +22,7 @@ const createTags = ({tags, minSize, maxSize, renderer, onClick}) => {
              .map(createComponent);
 };
 
-export default class TagCloud extends React.Component {
+export class TagCloud extends React.Component {
   render() {
     const props = Object.assign({}, this.props, omittedProps);
     const tags = createTags(this.props);
@@ -44,7 +44,7 @@ TagCloud.propTypes = {
 };
 
 TagCloud.defaultProps = {
-  renderer: DefaultRenderer(),
+  renderer: defaultRenderer(),
   shuffle: true,
   className: "tag-cloud"
 };
