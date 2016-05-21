@@ -25,7 +25,9 @@
       "<rootDir>/node_modules/react/",
       "<rootDir>/node_modules/react-dom/",
       "<rootDir>/node_modules/react-addons-test-utils/"
-    ]
+    ],
+    "verbose": true,
+    "collectCoverage": true
   },
   "dependencies": {
     "array-shuffle": "^1.0.0",

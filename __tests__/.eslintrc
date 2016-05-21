@@ -3,6 +3,7 @@
     "jest": true,
     "it": true,
     "describe": true,
-    "expect": true
+    "expect": true,
+    "jasmine": true
   }
 }
