@@ -1,9 +1,10 @@
 import React from "react";
 import { defaultRenderer } from "./defaultRenderer";
+import objectAssign from "object-assign";
 import arrayShuffle from "array-shuffle";
 
 const omitted = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'onClick'];
-const omittedProps = omitted.reduce((r, k) => Object.assign(r, {[k]: undefined}), {});
+const omittedProps = omitted.reduce((r, k) => objectAssign(r, {[k]: undefined}), {});
 
 const fontSizeConverter = (count, min, max, minSize, maxSize) =>
                              Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize);
@@ -24,7 +25,7 @@ const createTags = ({tags, minSize, maxSize, renderer, onClick}) => {
 
 export class TagCloud extends React.Component {
   render() {
-    const props = Object.assign({}, this.props, omittedProps);
+    const props = objectAssign({}, this.props, omittedProps);
     const tags = createTags(this.props);
     return (
       <div {...props}>

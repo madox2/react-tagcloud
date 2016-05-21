@@ -1,5 +1,6 @@
 import React from "react";
 import randomColor from "randomcolor";
+import objectAssign from "object-assign";
 
 const defaultClassName = "tag-cloud-tag";
 
@@ -20,8 +21,8 @@ export const defaultRenderer = ({ tagRenderer = defaultTagRenderer, colorOptions
   const eventHandlers = {};
   Object.keys(handlers).forEach(key => handlers[key] && (eventHandlers[key] = (e) => handlers[key](tag, e)));
 
-  const elementProps = Object.assign({}, {className}, eventHandlers, props, {key});
-  elementProps.style = Object.assign({}, defaultStyles, {color}, props.style, {fontSize});
+  const elementProps = objectAssign({}, {className}, eventHandlers, props, {key});
+  elementProps.style = objectAssign({}, defaultStyles, {color}, props.style, {fontSize});
 
   return <span {...elementProps}>{tagRenderer(tag)}</span>;
 };

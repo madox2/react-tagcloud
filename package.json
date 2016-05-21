@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "array-shuffle": "^1.0.0",
+    "object-assign": "^4.1.0",
     "randomcolor": "^0.4.2"
   },
   "devDependencies": {
