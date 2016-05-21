@@ -1,4 +1,12 @@
+import { defaultRenderer } from './defaultRenderer';
+
+const deprecatedRendererExport = (...args) => {
+  // eslint-disable-next-line no-console
+  console.warn(`Using deprecated 'DefaultRenderer' import, it will be removed in the next release and replaced with 'defaultRenderer'.`);
+  return defaultRenderer(...args);
+};
+
 export { TagCloud } from './TagCloud';
-// TODO: use name defaultRenderer in new release
-export { defaultRenderer as DefaultRenderer } from './defaultRenderer';
+export { deprecatedRendererExport as DefaultRenderer };
+export { defaultRenderer };
 

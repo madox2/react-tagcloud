@@ -13,7 +13,7 @@ npm install react-tagcloud
 
 
 ```javascript
-import {TagCloud, DefaultRenderer} from "react-tagcloud";
+import {TagCloud, defaultRenderer} from "react-tagcloud";
 
 const data = [
     { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -32,7 +32,7 @@ ReactDOM.render(
 );
 
 // custom options - adds custom props and custom color options
-const renderer = new DefaultRenderer({
+const renderer = defaultRenderer({
     props: {
         style: {border: '1px solid silver', padding: '5px'},
         className: 'my-tag-class'

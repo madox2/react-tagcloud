@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {TagCloud, DefaultRenderer} from "../src/index";
+import {TagCloud, defaultRenderer} from "../src/index";
 
 const data = [
     { value: { name: "google", link: "http://google.com" }, count: 25 },
@@ -17,7 +17,7 @@ const data = [
 // tagRender is a function which takes tag as argument and returns react component or simple string
 const tagRenderer = tag => (<a href={tag.value.link}>{tag.value.name}</a>);
 
-const customizedDefaultRenderer = new DefaultRenderer({ tagRenderer });
+const customizedDefaultRenderer = defaultRenderer({ tagRenderer });
 
 ReactDOM.render(
     <TagCloud minSize={12}
