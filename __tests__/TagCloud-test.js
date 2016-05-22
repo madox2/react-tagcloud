@@ -1,5 +1,6 @@
 jest.unmock('../src/TagCloud');
 jest.unmock('../src/defaultRenderer');
+jest.unmock('../src/helpers');
 
 jest.mock('array-shuffle', () => arr => arr.reverse());
 

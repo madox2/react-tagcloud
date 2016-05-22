@@ -1,4 +1,5 @@
 jest.unmock('../src/defaultRenderer');
+jest.unmock('../src/helpers');
 
 jest.mock('randomcolor', () => o => Object.keys(o).length ? 'custom' : 'red');
 
