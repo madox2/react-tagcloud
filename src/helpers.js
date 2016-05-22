@@ -11,6 +11,18 @@ export const omitProps = (target, props) => {
 };
 
 /**
+ * Creates new object from target including all available properties.
+ */
+export const includeProps = (target, props) => {
+  return Object.keys(target).reduce((r, key) => {
+    if (~props.indexOf(key) && key in target) {
+      r[key] = target[key];
+    }
+    return r;
+  }, {});
+};
+
+/**
  * Computes appropriate font size of tag.
  */
 export const fontSizeConverter = (count, min, max, minSize, maxSize) => {

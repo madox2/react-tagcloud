@@ -1,6 +1,6 @@
 jest.unmock('../src/helpers');
 
-import { omitProps, fontSizeConverter } from '../src/helpers';
+import { omitProps, includeProps, fontSizeConverter } from '../src/helpers';
 
 describe('helpers', () => {
 
@@ -8,6 +8,18 @@ describe('helpers', () => {
     it('should omit object properties', () => {
       const obj = omitProps({ a: 1, b: 2, c: 3, d: 4 }, [ 'a', 'c' ]);
       expect(obj).toEqual({ b: 2, d: 4 });
+    });
+  });
+
+  describe('includeProps', () => {
+    it('should include all object properties', () => {
+      const obj = includeProps({ a: 1, b: 2, c: 3, d: 4 }, [ 'a', 'c' ]);
+      expect(obj).toEqual({ a: 1, c: 3 });
+    });
+
+    it('should include all available object properties', () => {
+      const obj = includeProps({ a: 1, b: 2, c: 3, d: 4 }, [ 'b', 'e' ]);
+      expect(obj).toEqual({ b: 2 });
     });
   });
 

@@ -1,13 +1,11 @@
 import React from 'react';
 import { defaultRenderer } from './defaultRenderer';
 import arrayShuffle from 'array-shuffle';
-import { omitProps, fontSizeConverter } from './helpers';
+import { omitProps, includeProps, fontSizeConverter } from './helpers';
 
-const eventHandlers = ['onClick'];
-const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize'];
-
-const createTags = ({tags, minSize, maxSize, renderer, onClick}) => {
-  const handlers = {onClick};
+const createTags = (props) => {
+  const {tags, minSize, maxSize, renderer} = props;
+  const handlers = includeProps(props, eventHandlers);
   const counts = tags.map(tag => tag.count),
         min = Math.min(...counts),
         max = Math.max(...counts);
@@ -19,6 +17,9 @@ const createTags = ({tags, minSize, maxSize, renderer, onClick}) => {
   return tags.map(computeFontSize)
              .map(createComponent);
 };
+
+const eventHandlers = ['onClick', 'onDoubleClick', 'onMouseMove'];
+const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize'];
 
 export class TagCloud extends React.Component {
   render() {
