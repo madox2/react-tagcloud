@@ -12,6 +12,11 @@ export const defaultRenderer = (options = {}) => (tag, size, key, handlers = {})
 
   const className =  'tag-cloud-tag';
   const fontSize = size + 'px';
+  if (props.disableRandomColor) {
+    // eslint-disable-next-line no-console
+    console.warn("Using deprecated property 'disableRandomColor' passed to prop option of defaultRenderer. "
+               + "It will be removed in the next major release and replaced with it's own option 'disableRandomColor'.");
+  }
   const color = (props.disableRandomColor || disableRandomColor) ? tag.color || undefined : randomColor(colorOptions);
 
   const eventHandlers = {};
