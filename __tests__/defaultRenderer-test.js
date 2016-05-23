@@ -48,12 +48,21 @@ describe('defaultRenderer', () => {
     expect(tag.props.style).toEqual(objectContaining({ color: 'custom' }));
   });
 
-  it('should disable random color', () => {
+  it('should disable random color using custom props', () => {
+    // deprecated
     const render = defaultRenderer({
       props: { disableRandomColor: true }
     });
     const tag = render({ value: 'tag1', count: 33 }, 18, 1);
-    expect(tag.props.style).toEqual(objectContaining({ color: 'black' }));
+    expect(tag.props.style.color).not.toBeDefined();
+  });
+
+  it('should disable random color using options', () => {
+    const render = defaultRenderer({
+      disableRandomColor: true
+    });
+    const tag = render({ value: 'tag1', count: 33 }, 18, 1);
+    expect(tag.props.style.color).not.toBeDefined();
   });
 
 });
