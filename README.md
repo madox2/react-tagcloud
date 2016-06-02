@@ -12,7 +12,7 @@ npm install react-tagcloud
 
 ### Usage
 
-#### Simple cloud with onClick handler
+#### Simple cloud with onClick event handler
 
 ```javascript
 import { TagCloud, defaultRenderer } from "react-tagcloud";
