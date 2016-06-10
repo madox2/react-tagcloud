@@ -12,13 +12,13 @@ export const defaultRenderer = (options = {}) => (tag, size, handlers = {}) => {
   const className =  'tag-cloud-tag';
   const fontSize = size + 'px';
   const color = props.disableRandomColor ? tag.color || 'black' : randomColor(colorOptions);
+  const key = tag.key || tag.value;
+  const style = objectAssign({}, styles, {color}, props.style, {fontSize});
 
   const eventHandlers = {};
-  const key = tag.key || tag.value;
   Object.keys(handlers).forEach(key => handlers[key] && (eventHandlers[key] = (e) => handlers[key](tag, e)));
 
-  const elementProps = objectAssign({}, {className}, eventHandlers, props, {key});
-  elementProps.style = objectAssign({}, styles, {color}, props.style, {fontSize});
+  const elementProps = objectAssign({}, {className}, eventHandlers, props, {style}, {key});
 
   return <span {...elementProps}>{tagRenderer(tag)}</span>;
 };
