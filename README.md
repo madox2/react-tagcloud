@@ -57,8 +57,8 @@ const CustomOptionsCloud = () => (
 #### Custom renderer
 
 ```javascript
-const customRenderer = (tag, size, key) => {
-  return <span key={key} className={`tag-${size}`}>{tag.value}</span>;
+const customRenderer = (tag, size, handlers) => {
+  return <span {...handlers} key={tag.value} className={`tag-${size}`}>{tag.value}</span>;
 };
 
 const CustomRendererCloud = () => (

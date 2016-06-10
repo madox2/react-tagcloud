@@ -13,12 +13,12 @@ describe('defaultRenderer', () => {
 
   it('should render tag', () => {
     const render = defaultRenderer();
-    const tag = render({ value: 'tag1', count: 33 }, 18, 1);
+    const tag = render({ value: 'tag1', key: 'key1', count: 33 }, 18, 1);
     const tagDom = TestUtils.renderIntoDocument(tag);
     expect(tagDom.textContent).toEqual('tag1');
     expect(tag).toEqual(objectContaining({
       type: 'span',
-      key: '1'
+      key: 'key1'
     }));
     expect(tag.props).toEqual(objectContaining({
       className: 'tag-cloud-tag',

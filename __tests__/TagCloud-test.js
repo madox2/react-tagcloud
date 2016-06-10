@@ -67,8 +67,8 @@ describe('TagCloud', () => {
   });
 
   it('should use custom renderer', () => {
-    const customRenderer = (tag, size, key) => {
-      return <a href='#' key={key} className={`tag-${size}`}>{`${tag.value}-${tag.count}`}</a>;
+    const customRenderer = (tag, size) => {
+      return <a href='#' key={tag.value} className={`tag-${size}`}>{`${tag.value}-${tag.count}`}</a>;
     };
     const cloud = TestUtils.renderIntoDocument(
       <TagCloud minSize={12} maxSize={30} tags={data} renderer={customRenderer} shuffle={false} />

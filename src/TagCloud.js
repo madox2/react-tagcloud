@@ -13,7 +13,7 @@ const createTags = (tags, props) => {
     tag: tag,
     fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
   });
-  const createComponent = ({tag, fontSize}, key) => renderer(tag, fontSize, key, handlers);
+  const createComponent = ({tag, fontSize}) => renderer(tag, fontSize, handlers);
   return tags.map(computeFontSize)
              .map(createComponent);
 };
