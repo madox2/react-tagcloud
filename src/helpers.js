@@ -28,3 +28,13 @@ export const includeProps = (target, props) => {
 export const fontSizeConverter = (count, min, max, minSize, maxSize) => {
   return Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize);
 };
+
+/**
+ * Returns true if arrays contains the same elements.
+ */
+export const arraysEqual = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  return arr1.every((o, i) => o === arr2[i]);
+};

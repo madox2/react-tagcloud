@@ -2,7 +2,7 @@ jest.unmock('../src/TagCloud');
 jest.unmock('../src/defaultRenderer');
 jest.unmock('../src/helpers');
 
-jest.mock('array-shuffle', () => arr => arr.reverse());
+jest.mock('array-shuffle', () => arr => arr.slice().reverse());
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -38,7 +38,7 @@ describe('TagCloud', () => {
     const tags = TestUtils.scryRenderedDOMComponentsWithClass(cloud, 'tag-cloud-tag');
     expect(tags.length).toEqual(4);
     const reversed = data.slice().reverse();
-    tags.forEach((t, i) => expect(t.textContent).toEqual(reversed[i].value))
+    tags.forEach((t, i) => expect(t.textContent).toEqual(reversed[i].value));
   });
 
   it('should render not shuffled tags', () => {
@@ -76,6 +76,48 @@ describe('TagCloud', () => {
     const tags = TestUtils.scryRenderedDOMComponentsWithTag(cloud, 'a');
     expect(tags.length).toEqual(4);
     tags.forEach((t, i) => expect(t.textContent).toEqual(`${data[i].value}-${data[i].count}`));
+  });
+
+  it('should not re-shuffle tags', () => {
+    const cloud = TestUtils.renderIntoDocument(
+      <TagCloud minSize={12} maxSize={30} tags={data} />
+    );
+    const reversed = data.slice().reverse();
+    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud.componentWillReceiveProps({ shuffle: true, tags: data });
+    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+  });
+
+  it('should re-shuffle tags when data changed', () => {
+    const cloud = TestUtils.renderIntoDocument(
+      <TagCloud minSize={12} maxSize={30} tags={data} />
+    );
+    const reversed = data.slice().reverse();
+    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    const newTag = { value: 'tag5', count: 55 };
+    cloud.componentWillReceiveProps({ shuffle: true, tags: [...data, newTag] });
+    const newShuffled = [...data, newTag].reverse();
+    cloud._tags.forEach((t, i) => expect(t).toEqual(newShuffled[i]));
+  });
+
+  it('should shuffle on the fly', () => {
+    const cloud = TestUtils.renderIntoDocument(
+      <TagCloud minSize={12} maxSize={30} tags={data} shuffle={false} />
+    );
+    cloud._tags.forEach((t, i) => expect(t).toEqual(data[i]));
+    const reversed = data.slice().reverse();
+    cloud.componentWillReceiveProps({ shuffle: true, tags: data });
+    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+  });
+
+  it('should unshuffle on the fly', () => {
+    const cloud = TestUtils.renderIntoDocument(
+      <TagCloud minSize={12} maxSize={30} tags={data} shuffle={true} />
+    );
+    const reversed = data.slice().reverse();
+    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud.componentWillReceiveProps({ shuffle: false, tags: data });
+    cloud._tags.forEach((t, i) => expect(t).toEqual(data[i]));
   });
 
 });

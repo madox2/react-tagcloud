@@ -1,6 +1,6 @@
 jest.unmock('../src/helpers');
 
-import { omitProps, includeProps, fontSizeConverter } from '../src/helpers';
+import { omitProps, includeProps, fontSizeConverter, arraysEqual } from '../src/helpers';
 
 describe('helpers', () => {
 
@@ -37,6 +37,25 @@ describe('helpers', () => {
     it('should middle tag size', () => {
       const size = fontSizeConverter(450, 10, 1000, 12, 25);
       expect(size).toEqual(18);
+    });
+  });
+
+  describe('arraysEqual', () => {
+    it('should be equal', () => {
+      const arr = [1, { a: 2 }, 'hello'];
+      expect(arraysEqual(arr, arr.slice())).toEqual(true);
+    });
+
+    it('should not be equal', () => {
+      const arr1 = [1, { a: 2 }, 'hello'];
+      const arr2 = [1, { a: 2 }, 'hello'];
+      expect(arraysEqual(arr1, arr2)).toEqual(false);
+    });
+
+    it('should not be equal because of different length', () => {
+      const arr1 = [1, 2, 3];
+      const arr2 = [1, 2, 3, 4];
+      expect(arraysEqual(arr1, arr2)).toEqual(false);
     });
   });
 

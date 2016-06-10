@@ -1,10 +1,10 @@
 import React from 'react';
 import { defaultRenderer } from './defaultRenderer';
 import arrayShuffle from 'array-shuffle';
-import { omitProps, includeProps, fontSizeConverter } from './helpers';
+import { omitProps, includeProps, fontSizeConverter, arraysEqual } from './helpers';
 
-const createTags = (props) => {
-  const {tags, minSize, maxSize, renderer} = props;
+const createTags = (tags, props) => {
+  const {minSize, maxSize, renderer} = props;
   const handlers = includeProps(props, eventHandlers);
   const counts = tags.map(tag => tag.count),
         min = Math.min(...counts),
@@ -22,12 +22,32 @@ const eventHandlers = ['onClick', 'onDoubleClick', 'onMouseMove'];
 const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize'];
 
 export class TagCloud extends React.Component {
+
+  componentWillReceiveProps({ shuffle, tags }) {
+    if (!shuffle) {
+      this._tags = tags;
+      return;
+    }
+    if (shuffle && shuffle !== this.props.shuffle) {
+      this._tags = arrayShuffle(tags);
+      return;
+    }
+    if (shuffle && !arraysEqual(tags, this.props.tags)) {
+      this._tags = arrayShuffle(tags);
+    }
+  }
+
+  componentWillMount() {
+    const { tags, shuffle } = this.props;
+    this._tags = shuffle ? arrayShuffle(tags) : tags;
+  }
+
   render() {
     const props = omitProps(this.props, [...cloudProps, ...eventHandlers]);
-    const tags = createTags(this.props);
+    const tags = createTags(this._tags, this.props);
     return (
       <div {...props}>
-        {this.props.shuffle ? arrayShuffle(tags) : tags}
+        {tags}
       </div>
     );
   }
