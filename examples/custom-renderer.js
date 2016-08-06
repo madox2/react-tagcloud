@@ -12,7 +12,7 @@ const data = [
 
 // custom renderer is function which takes tag, computed font size and
 // elemnt key as arguments, and returns react component
-const customRenderer = (tag, size, handlers) => {
+const customRenderer = (tag, size, color, handlers) => {
   return <span {...handlers} key={tag.value} className={`tag-${size}`}>{tag.value}</span>;
 };
 

@@ -10,9 +10,7 @@ const BASE_URL = 'https://raw.githubusercontent.com/madox2/react-tagcloud/master
 const examples = [
   {file: 'simple-cloud.js', title: 'Simple cloud', key: 1},
   {file: 'custom-props.js', title: 'Custom props', key: 2},
-  {file: 'default-renderer.js', title: 'Default renderer', key: 3},
-  {file: 'custom-tag-renderer.js', title: 'Custom tag renderer', key: 4},
-  {file: 'custom-renderer.js', title: 'custom renderer', key: 5}
+  {file: 'custom-renderer.js', title: 'Custom renderer', key: 5}
 ];
 
 const App = () => (

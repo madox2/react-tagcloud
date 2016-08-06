@@ -83,9 +83,9 @@ describe('TagCloud', () => {
       <TagCloud minSize={12} maxSize={30} tags={data} />
     );
     const reversed = data.slice().reverse();
-    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(reversed[i]));
     cloud.componentWillReceiveProps({ shuffle: true, tags: data });
-    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(reversed[i]));
   });
 
   it('should re-shuffle tags when data changed', () => {
@@ -93,21 +93,21 @@ describe('TagCloud', () => {
       <TagCloud minSize={12} maxSize={30} tags={data} />
     );
     const reversed = data.slice().reverse();
-    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(reversed[i]));
     const newTag = { value: 'tag5', count: 55 };
     cloud.componentWillReceiveProps({ shuffle: true, tags: [...data, newTag] });
     const newShuffled = [...data, newTag].reverse();
-    cloud._tags.forEach((t, i) => expect(t).toEqual(newShuffled[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(newShuffled[i]));
   });
 
   it('should shuffle on the fly', () => {
     const cloud = TestUtils.renderIntoDocument(
       <TagCloud minSize={12} maxSize={30} tags={data} shuffle={false} />
     );
-    cloud._tags.forEach((t, i) => expect(t).toEqual(data[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(data[i]));
     const reversed = data.slice().reverse();
     cloud.componentWillReceiveProps({ shuffle: true, tags: data });
-    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(reversed[i]));
   });
 
   it('should unshuffle on the fly', () => {
@@ -115,9 +115,9 @@ describe('TagCloud', () => {
       <TagCloud minSize={12} maxSize={30} tags={data} shuffle={true} />
     );
     const reversed = data.slice().reverse();
-    cloud._tags.forEach((t, i) => expect(t).toEqual(reversed[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(reversed[i]));
     cloud.componentWillReceiveProps({ shuffle: false, tags: data });
-    cloud._tags.forEach((t, i) => expect(t).toEqual(data[i]));
+    cloud._data.forEach((t, i) => expect(t.tag).toEqual(data[i]));
   });
 
 });
