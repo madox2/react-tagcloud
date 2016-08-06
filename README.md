@@ -41,7 +41,7 @@ TagCloud accepts options below, however you can pass any other option to the com
 
 | Option | Type | Required | Note |
 |-----------|----------|--------|---|
-|`tags`              |`Array`   |`true`|Array of objects representing tags, see ([Tag object](#tag-object))|
+|`tags`              |`Array`   |`true`|Array of objects representing tags (see [Tag object](#tag-object))|
 |`maxSize`           |`Number`  |`true` |Maximal font size (px) used in cloud|
 |`minSize`           |`Number`  |`true` |Minimal font size (px) used in cloud|
 |`shuffle`           |`Boolean` |`false`|If true, tags are shuffled. When tag data are modified, cloud is re-shuffled. Default: `true`|
@@ -59,7 +59,7 @@ Each tag is represented by object containing properties:
 |`value`|`String`|`true` |Tag's value to be displayed|
 |`count`|`Number`|`true` |Represents frequency of the tag. It is used to calculate tag size|
 |`key`  |`String`|`false`|This property is used as element key. If it is not provided, the `value` property is used instead. In this case it can fail if you don't have unique tag values. I highly recommed to use `key` property if you are not sure that tag values will be unique|
-|`color`|`String`|`false`|Represents color of the tag. If it is not provided, [randomColor](https://github.com/davidmerfield/randomColor) will be used instead|
+|`color`|`String`|`false`|Represents color of the tag. If it is not provided, random color will be used instead|
 
 ### Events
 
