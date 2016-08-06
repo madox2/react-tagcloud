@@ -7,6 +7,8 @@ import DefaultRendererExample from "./default-renderer";
 import CustomTagRendererExample from "./custom-tag-renderer";
 import CustomRendererExample from "./custom-renderer";
 
+require('./index.html');
+
 const App = () => (
   <div>
     <h1>TagCloud examples</h1>

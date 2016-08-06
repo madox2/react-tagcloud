@@ -7,7 +7,7 @@
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile",
     "test": "jest",
-    "build": "webpack --progress --profile --colors",
+    "build": "webpack -p --progress --profile --colors --config webpack.production.config.js",
     "start": "webpack-dev-server --hot --inline",
     "lint": "eslint ."
   },
