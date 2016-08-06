@@ -41,7 +41,7 @@ TagCloud accepts options below, however you can pass any other option to the com
 
 | Option | Type | Required | Note |
 |-----------|----------|--------|---|
-|`tags`              |`Array`   |`true`|Array of objects representing tags. Each object have to contain `value` (`String`), `count` (`Number`) and optional `key` (`String`) and `color` (`String`) property|
+|`tags`              |`Array`   |`true`|Array of objects representing tags, see ([Tag object](#tag-object))|
 |`maxSize`           |`Number`  |`true` |Maximal font size (px) used in cloud|
 |`minSize`           |`Number`  |`true` |Minimal font size (px) used in cloud|
 |`shuffle`           |`Boolean` |`false`|If true, tags are shuffled. When tag data are modified, cloud is re-shuffled. Default: `true`|
@@ -50,8 +50,16 @@ TagCloud accepts options below, however you can pass any other option to the com
 |`shuffle`           |`Boolean` |`false`|If true, tags are shuffled. When tag data are modified, cloud is re-shuffled. Default: `true`|
 |`renderer`          |`Function`|`false`|Function used to render each tag|
 
-**Note:** `key` property of tag object is used as tag element key. If it is not provided, the `value` property is used instead. In this case it can fail if you don't have unique tag values. I highly recommed to use `key` property if you are not sure that tag values will be unique.
-**Note:** if `color` property of tag object exists, this color will be used to render tag.
+### Tag object
+
+Each tag is represented by object containing properties:
+
+| Property | Type | Required | Note |
+|----------|------|----------|------|
+|`value`|`String`|`true` |Tag's value to be displayed|
+|`count`|`Number`|`true` |Represents frequency of the tag. It is used to calculate tag size|
+|`key`  |`String`|`false`|This property is used as element key. If it is not provided, the `value` property is used instead. In this case it can fail if you don't have unique tag values. I highly recommed to use `key` property if you are not sure that tag values will be unique|
+|`color`|`String`|`false`|Represents color of the tag. If it is not provided, [randomColor](https://github.com/davidmerfield/randomColor) will be used instead|
 
 ### Events
 
