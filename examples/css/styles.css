@@ -1,0 +1,51 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: DarkSlateGray;
+  background-color: GhostWhite;
+  margin: 0;
+  padding: 0;
+}
+main {
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: LightSeaGreen;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: GhostWhite;
+}
+footer {
+  background-color: LightSeaGreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: GhostWhite;
+}
+header > h1, header > h3 {
+  margin: 5px;
+}
+section {
+  background-color: White;
+  margin: auto;
+  max-width: 800px;
+  padding-bottom: 40px;
+}
+article {
+  border-top: 1px solid Gainsboro;
+  padding: 15px 10px 10px 10px;
+}
+.detail-wrapper {
+  margin-top: 10px;
+}
+.detail-wrapper a {
+  color: DodgerBlue;
+  text-decoration: none;
+}
+.code-preview {
+  border: 1px solid Gainsboro;
+}
