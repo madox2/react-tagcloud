@@ -2,6 +2,8 @@
 
 Simple and extensible tag/word cloud React component.
 
+You can find demo on [preview page](https://madox2.github.io/react-tagcloud/).
+
 ![preview tag-cloud preview](http://s27.postimg.org/ki0u7pe83/preview.png)
 
 ## Installation
