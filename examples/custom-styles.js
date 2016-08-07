@@ -8,8 +8,18 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-// any other props will be applied on TagCloud root component
-// e.g. style and className
+const myTagCloudClass = `
+.myTagCloud span {
+  text-decoration: underline;
+}`;
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(myTagCloudClass, styleSheet.cssRules.length);
+
+// default style class names are tag-cloud and tag-cloud-tag
+
+// class name of the wrapping component can be overriden
+// by passing `className` prop
+// it is also possible to pass inline styles
 export default () => (
   <TagCloud minSize={12}
             maxSize={35}

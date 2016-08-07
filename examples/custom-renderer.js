@@ -8,18 +8,32 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-// using custom renderer the default renderer will be overriden
+const keyframes = `
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}`;
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
 
-// custom renderer is function which takes tag, computed font size and
-// elemnt key as arguments, and returns react component
-const customRenderer = (tag, size, color, handlers) => {
-  return <span {...handlers} key={tag.value} className={`tag-${size}`}>{tag.value}</span>;
-};
+// custom renderer is function which has tag, computed font size and
+// color as arguments, and returns react component which represents tag
+const customRenderer = (tag, size, color) => (
+  <span key={tag.value}
+        style={{
+          animation: 'blinker 3s linear infinite',
+          animationDelay: `${Math.random() * 2}s`,
+          fontSize: `${size}em`,
+          border: `2px solid ${color}`,
+          margin: '3px',
+          padding: '3px',
+          display: 'inline-block'
+        }}>{tag.value}</span>
+);
 
 export default () => (
   <TagCloud tags={data}
             minSize={1}
-            maxSize={5}
+            maxSize={2}
             renderer={customRenderer} />
 );
 
