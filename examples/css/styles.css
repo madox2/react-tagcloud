@@ -49,3 +49,11 @@ article {
 .code-preview {
   border: 1px solid Gainsboro;
 }
+
+/* styles needed by examples */
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}
+.myTagCloud span {
+  text-decoration: underline;
+}

@@ -8,13 +8,6 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-const keyframes = `
-@keyframes blinker {
-  50% { opacity: 0.0; }
-}`;
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
-
 // custom renderer is function which has tag, computed font size and
 // color as arguments, and returns react component which represents tag
 const customRenderer = (tag, size, color) => (

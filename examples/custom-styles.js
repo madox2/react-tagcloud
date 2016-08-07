@@ -8,13 +8,6 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-const myTagCloudClass = `
-.myTagCloud span {
-  text-decoration: underline;
-}`;
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(myTagCloudClass, styleSheet.cssRules.length);
-
 // default style class names are tag-cloud and tag-cloud-tag
 
 // class name of the wrapping component can be overriden
