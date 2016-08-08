@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Highlight from "react-highlight";
 
-require('./index.html');
-require('./css/styles.css');
+import 'whatwg-fetch';
+import './index.html';
+import './css/styles.css';
 
 const BASE_URL = 'https://raw.githubusercontent.com/madox2/react-tagcloud/master/examples/';
 
