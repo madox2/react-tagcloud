@@ -1,5 +1,5 @@
 import React from "react";
-import { TagCloud } from "../src/index";
+import { TagCloud } from "react-tagcloud";
 
 const data = [
   { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -8,19 +8,16 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-// custom random color options
-// see randomColor package: https://github.com/davidmerfield/randomColor
-const options = {
-  luminosity: 'light',
-  hue: 'blue'
-};
+// default style class names are tag-cloud and tag-cloud-tag
 
+// class name of the wrapping component can be overriden
+// by passing `className` prop
+// it is also possible to pass inline styles
 export default () => (
   <TagCloud minSize={12}
             maxSize={35}
-            colorOptions={options}
-            className='my-tag-class'
             tags={data}
-            onClick={tag => console.log('clicking on tag:', tag)} />
+            style={{width: 300}}
+            className="myTagCloud" />
 );
 

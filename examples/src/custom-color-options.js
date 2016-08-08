@@ -1,5 +1,5 @@
 import React from "react";
-import { TagCloud } from "../src/index";
+import { TagCloud } from "react-tagcloud";
 
 const data = [
   { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
@@ -8,13 +8,18 @@ const data = [
   { value: "HTML5", count: 33 }, { value: "CSS3", count: 20 }
 ];
 
-// minSize, maxSize - font size in px
-// tags - array of objects with properties value and count
-// shuffle - indicates if data should be shuffled (true by default)
-// onClick event handler has `tag` and `event` parameter
+// custom random color options
+// see randomColor package: https://github.com/davidmerfield/randomColor
+const options = {
+  luminosity: 'light',
+  hue: 'blue'
+};
+
 export default () => (
   <TagCloud minSize={12}
             maxSize={35}
+            colorOptions={options}
+            className='my-tag-class'
             tags={data}
             onClick={tag => console.log('clicking on tag:', tag)} />
 );

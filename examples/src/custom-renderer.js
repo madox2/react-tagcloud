@@ -1,5 +1,5 @@
 import React from "react";
-import { TagCloud } from "../src/index";
+import { TagCloud } from "react-tagcloud";
 
 const data = [
   { value: "jQuery", count: 25 }, { value: "MongoDB", count: 18 },
