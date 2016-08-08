@@ -115,6 +115,8 @@ npm test
 ### Run examples
 
 ```
+cd examples
+npm install
 npm start
 ```
 
