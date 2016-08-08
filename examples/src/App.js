@@ -1,7 +1,7 @@
 import React from "react";
 import Highlight from "react-highlight";
 
-const BASE_URL = 'https://raw.githubusercontent.com/madox2/react-tagcloud/master/examples/';
+const BASE_URL = 'https://raw.githubusercontent.com/madox2/react-tagcloud/master/examples/src/';
 
 const examples = [
   {file: 'simple-cloud.js', title: 'Simple cloud', key: 1},
