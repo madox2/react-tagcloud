@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  color: DarkSlateGray;
+  color: #4b6d75;
   background-color: GhostWhite;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ main {
   padding: 0;
 }
 header {
-  background-color: LightSeaGreen;
+  background-color: #4b6d75;
   min-height: 150px;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ header {
   color: GhostWhite;
 }
 footer {
-  background-color: LightSeaGreen;
+  background-color: #4b6d75;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,19 +38,21 @@ header > h1, header > h3 {
 }
 section {
   background-color: White;
-  margin: auto;
-  max-width: 800px;
   padding-bottom: 40px;
 }
 article {
   border-top: 1px solid Gainsboro;
   padding: 15px 10px 10px 10px;
 }
+article > div {
+  max-width: 800px;
+  margin: auto;
+}
 .detail-wrapper {
   margin-top: 10px;
 }
 .detail-wrapper a {
-  color: DodgerBlue;
+  color: #4b6d75;
   text-decoration: none;
 }
 .code-preview {
@@ -64,6 +66,9 @@ article {
 .myTagCloud span {
   text-decoration: underline;
 }
-.tag-cloud {
+.cloud-wrapper {
+  border: 1px solid Gainsboro;
   text-align: center;
+  background-color: #3e3833;
+  padding: 20px;
 }

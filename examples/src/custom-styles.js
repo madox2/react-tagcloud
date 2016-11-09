@@ -22,7 +22,7 @@ export default () => (
   <TagCloud minSize={12}
             maxSize={35}
             tags={data}
-            style={{width: 300}}
+            style={{width: 300, textAlign: 'left'}}
             className="myTagCloud" />
 );
 

@@ -58,15 +58,19 @@ class Example extends React.Component {
   render() {
     return (
       <article>
-        <h2>{this.props.title}</h2>
-        {React.createElement(this.props.element)}
-        <div className="detail-wrapper">
-          <a href="#" onClick={this.toggleDetail}>{this.state.expanded ? '\u25B2 hide' : '\u25BC show code'}</a>
-          {this.state.expanded && this.state.fetched && (
-            <Highlight className="javascript code-preview">
-              {this.state.detail}
-            </Highlight>
-          )}
+        <div>
+          <h2>{this.props.title}</h2>
+          <div className="cloud-wrapper">
+            {React.createElement(this.props.element)}
+          </div>
+          <div className="detail-wrapper">
+            <a href="#" onClick={this.toggleDetail}>{this.state.expanded ? '\u25B2 hide' : '\u25BC show code'}</a>
+            {this.state.expanded && this.state.fetched && (
+              <Highlight className="javascript code-preview">
+                {this.state.detail}
+              </Highlight>
+            )}
+          </div>
         </div>
       </article>
     );
