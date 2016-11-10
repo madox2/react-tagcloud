@@ -21,6 +21,6 @@ export default () => (
   <TagCloud minSize={12}
             maxSize={35}
             tags={data}
-            onClick={tag => console.log('clicking on tag:', tag)} />
+            onClick={tag => alert(`'${tag.value}' was selected!`)} />
 );
 
