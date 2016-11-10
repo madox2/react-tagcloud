@@ -14,7 +14,12 @@ const App = () => (
   <main>
     <header>
       <h1>Tag cloud for React</h1>
-      <h3>react-tagcloud examples</h3>
+      <h3>
+        react-tagcloud examples
+        <a className='github-link' href='https://github.com/madox2/react-tagcloud'>
+          <i className='fa fa-github fa-lg'></i>
+        </a>
+      </h3>
     </header>
 
     <section>

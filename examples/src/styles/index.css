@@ -72,3 +72,7 @@ article > div {
   background-color: #3e3833;
   padding: 20px;
 }
+a.github-link {
+  margin-left: 7px;
+  color: GhostWhite;
+}
