@@ -24,7 +24,6 @@ export default () => (
   <TagCloud minSize={12}
             maxSize={35}
             colorOptions={options}
-            className='my-tag-class'
             tags={data}
             onClick={tag => console.log('clicking on tag:', tag)} />
 );

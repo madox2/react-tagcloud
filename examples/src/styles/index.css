@@ -11,7 +11,7 @@ main {
 }
 header {
   background-color: LightSeaGreen;
-  min-height: 100px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +25,13 @@ footer {
   align-items: center;
   justify-content: center;
   color: GhostWhite;
+}
+footer a {
+  text-decoration: none;
+  color: GhostWhite;
+}
+footer a:hover {
+  text-decoration: underline;
 }
 header > h1, header > h3 {
   margin: 5px;
@@ -56,4 +63,7 @@ article {
 }
 .myTagCloud span {
   text-decoration: underline;
+}
+.tag-cloud {
+  text-align: center;
 }

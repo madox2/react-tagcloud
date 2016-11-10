@@ -23,7 +23,7 @@ const App = () => (
     ))}
     </section>
     <footer>
-      <p>2016 madox2</p>
+      <p>2016 <a href='http://madox2.poriadne.sk'>madox2</a></p>
     </footer>
   </main>
 );
