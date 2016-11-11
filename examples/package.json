@@ -8,6 +8,7 @@
   "dependencies": {
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-ga": "^2.1.2",
     "react-highlight": "^0.8.0",
     "react-tagcloud": "file:../",
     "whatwg-fetch": "^1.0.0"
