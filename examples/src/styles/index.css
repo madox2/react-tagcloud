@@ -58,14 +58,6 @@ article > div {
 .code-preview {
   border: 1px solid Gainsboro;
 }
-
-/* styles needed by examples */
-@keyframes blinker {
-  50% { opacity: 0.0; }
-}
-.myTagCloud span {
-  text-decoration: underline;
-}
 .cloud-wrapper {
   border: 1px solid Gainsboro;
   text-align: center;
@@ -75,4 +67,14 @@ article > div {
 a.github-link {
   margin-left: 7px;
   color: GhostWhite;
+}
+/* styles needed by examples */
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}
+.myTagCloud span {
+  text-decoration: underline;
+}
+.simple-cloud .tag-cloud-tag {
+  cursor: pointer;
 }

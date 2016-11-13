@@ -13,6 +13,12 @@ const data = [
   { value: "Flow", count: 30 }, { value: "NPM", count: 11 },
 ];
 
+/* CSS:
+.myTagCloud span {
+  text-decoration: underline;
+}
+*/
+
 // default style class names are tag-cloud and tag-cloud-tag
 
 // class name of the wrapping component can be overriden

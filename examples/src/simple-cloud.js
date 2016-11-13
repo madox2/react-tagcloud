@@ -13,6 +13,12 @@ const data = [
   { value: "Flow", count: 30 }, { value: "NPM", count: 11 },
 ];
 
+/* CSS:
+.simple-cloud .tag-cloud-tag {
+  cursor: pointer;
+}
+*/
+
 // minSize, maxSize - font size in px
 // tags - array of objects with properties value and count
 // shuffle - indicates if data should be shuffled (true by default)
@@ -21,6 +27,7 @@ export default () => (
   <TagCloud minSize={12}
             maxSize={35}
             tags={data}
+            className="simple-cloud"
             onClick={tag => alert(`'${tag.value}' was selected!`)} />
 );
 

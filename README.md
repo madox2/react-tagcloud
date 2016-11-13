@@ -73,9 +73,15 @@ Currently supported events: `onClick`, `onDoubleClick`, `onMouseMove`
 
 *Note:* Feel free to open issue if any other event is needed.
 
+### Styles
+
+Default class names are `tag-cloud` for wrapping container, and `tag-cloud-tag` for particular tag.
+Styles passed to `<TagCloud />` props will be applied to wrapping container.
+
 ### Renderer
 
 Rendering of tags can be fully customized by providing custom render function and passing it to the `renderer` prop.
+By default is used [defaultRenderer](https://github.com/madox2/react-tagcloud/blob/master/src/defaultRenderer.js).
 Render function has three arguments - `tag`, `size` and `color`.
 For example:
 
@@ -123,7 +129,7 @@ npm install
 npm start
 ```
 
-and open browser at `http://localhost:8080`
+and open browser at `http://localhost:3000`
 
 ## License
 

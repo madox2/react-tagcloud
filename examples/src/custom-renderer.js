@@ -13,6 +13,12 @@ const data = [
   { value: "Flow", count: 30 }, { value: "NPM", count: 11 },
 ];
 
+/* CSS:
+@keyframes blinker {
+  50% { opacity: 0.0; }
+}
+*/
+
 // custom renderer is function which has tag, computed font size and
 // color as arguments, and returns react component which represents tag
 const customRenderer = (tag, size, color) => (
