@@ -1,6 +1,6 @@
 {
   "name": "react-tagcloud",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "description": "Tag/word cloud component for react",
   "main": "lib/index.js",
   "scripts": {
@@ -34,8 +34,7 @@
     "randomcolor": "^0.4.2"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-cli": "^6.9.0",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.8.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
