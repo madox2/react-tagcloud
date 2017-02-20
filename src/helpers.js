@@ -38,3 +38,7 @@ export const arraysEqual = (arr1, arr2) => {
   }
   return arr1.every((o, i) => o === arr2[i]);
 };
+
+export const propertiesEqual = (o1, o2, properties) => {
+  return properties.every(prop => o1[prop] === o2[prop]);
+}

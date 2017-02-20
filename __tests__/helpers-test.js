@@ -1,6 +1,6 @@
 jest.unmock('../src/helpers');
 
-import { omitProps, includeProps, fontSizeConverter, arraysEqual } from '../src/helpers';
+import { omitProps, includeProps, fontSizeConverter, arraysEqual, propertiesEqual } from '../src/helpers';
 
 describe('helpers', () => {
 
@@ -56,6 +56,20 @@ describe('helpers', () => {
       const arr1 = [1, 2, 3];
       const arr2 = [1, 2, 3, 4];
       expect(arraysEqual(arr1, arr2)).toEqual(false);
+    });
+  });
+
+  describe('propertiesEqual', () => {
+    it('should have equal properties', () => {
+      const o1 = { a: '1', b: 3 };
+      const o2 = { a: '1', b: 3, c: 4 };
+      expect(propertiesEqual(o1, o2, ['a', 'b'])).toBe(true);
+    });
+
+    it('should have not equal properties', () => {
+      const o1 = { a: '1', b: 3 };
+      const o2 = { a: '1', b: 3, c: 4 };
+      expect(propertiesEqual(o1, o2, ['a', 'b', 'c'])).toBe(false);
     });
   });
 

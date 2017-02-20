@@ -2,7 +2,7 @@ import React from 'react';
 import { defaultRenderer } from './defaultRenderer';
 import arrayShuffle from 'array-shuffle';
 import randomColor from 'randomcolor';
-import { omitProps, includeProps, fontSizeConverter, arraysEqual } from './helpers';
+import { omitProps, includeProps, fontSizeConverter, arraysEqual, propertiesEqual } from './helpers';
 
 const eventHandlers = ['onClick', 'onDoubleClick', 'onMouseMove'];
 const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'colorOptions', 'disableRandomColor'];
@@ -20,11 +20,9 @@ const generateColor = (tag, {disableRandomColor, colorOptions}) => {
 export class TagCloud extends React.Component {
 
   componentWillReceiveProps(newProps) {
-    const { tags, shuffle, disableRandomColor } = newProps;
-    const dataEquals = arraysEqual(tags, this.props.tags) &&
-          shuffle == this.props.shuffle &&
-          disableRandomColor == this.props.disableRandomColor;
-    if (!dataEquals) {
+    const propsEqual = propertiesEqual(this.props, newProps, Object.keys(TagCloud.propTypes))
+    const tagsEqual = arraysEqual(newProps.tags, this.props.tags);
+    if (!tagsEqual || !propsEqual) {
       this._populate(newProps);
     }
   }
