@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { defaultRenderer } from './defaultRenderer';
 import arrayShuffle from 'array-shuffle';
 import randomColor from 'randomcolor';
@@ -73,14 +74,14 @@ export class TagCloud extends React.Component {
 }
 
 TagCloud.propTypes = {
-  tags: React.PropTypes.array.isRequired,
-  maxSize: React.PropTypes.number.isRequired,
-  minSize: React.PropTypes.number.isRequired,
-  shuffle: React.PropTypes.bool,
-  colorOptions: React.PropTypes.object,
-  disableRandomColor: React.PropTypes.bool,
-  renderer: React.PropTypes.func,
-  className: React.PropTypes.string
+  tags: PropTypes.array.isRequired,
+  maxSize: PropTypes.number.isRequired,
+  minSize: PropTypes.number.isRequired,
+  shuffle: PropTypes.bool,
+  colorOptions: PropTypes.object,
+  disableRandomColor: PropTypes.bool,
+  renderer: PropTypes.func,
+  className: PropTypes.string
 };
 
 TagCloud.defaultProps = {

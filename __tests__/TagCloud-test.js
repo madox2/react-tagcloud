@@ -6,7 +6,7 @@ jest.mock('array-shuffle', () => arr => arr.slice().reverse());
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import { TagCloud } from '../src/TagCloud';
 
 const { createSpy, any } = jasmine;

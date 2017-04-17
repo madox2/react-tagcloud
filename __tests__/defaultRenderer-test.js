@@ -3,7 +3,7 @@ jest.unmock('../src/helpers');
 
 jest.mock('randomcolor', () => o => Object.keys(o).length ? 'custom' : 'red');
 
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import { defaultRenderer } from '../src/defaultRenderer';
 
 const { any, objectContaining } = jasmine;
