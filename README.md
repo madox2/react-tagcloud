@@ -1,4 +1,4 @@
-#react-tagcloud
+# react-tagcloud
 
 Simple and extensible tag/word cloud React component.
 
