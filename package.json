@@ -1,6 +1,6 @@
 {
   "name": "react-tagcloud",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Tag/word cloud component for react",
   "main": "lib/index.js",
   "scripts": {
