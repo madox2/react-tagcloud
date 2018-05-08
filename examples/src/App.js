@@ -33,7 +33,7 @@ class App extends React.Component {
         ))}
         </section>
         <footer>
-          <p>2016 <a href='http://madox2.poriadne.sk'>madox2</a></p>
+          <p>2018 <a href='http://madox2.poriadne.sk'>madox2</a></p>
         </footer>
       </main>
     )
