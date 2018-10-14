@@ -35,8 +35,13 @@ describe('helpers', () => {
     });
 
     it('should middle tag size', () => {
-      const size = fontSizeConverter(450, 10, 1000, 12, 25);
-      expect(size).toEqual(18);
+      const size = fontSizeConverter(510, 10, 1000, 12, 25);
+      expect(size).toEqual(19);
+    });
+
+    it('should handle devision by zero', () => {
+      const size = fontSizeConverter(450, 10, 10, 12, 25);
+      expect(size).toEqual(19);
     });
   });
 

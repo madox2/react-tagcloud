@@ -26,6 +26,10 @@ export const includeProps = (target, props) => {
  * Computes appropriate font size of tag.
  */
 export const fontSizeConverter = (count, min, max, minSize, maxSize) => {
+  if (max - min === 0) {
+    // handle devision by zero
+    return Math.round((minSize + maxSize) / 2)
+  }
   return Math.round((count - min) * (maxSize - minSize) / (max - min) + minSize);
 };
 
