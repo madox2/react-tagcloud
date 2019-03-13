@@ -47,6 +47,7 @@ const SimpleCloud = () => (
 |`maxSize`           |`Number`  |`true` |Maximal font size (px) used in cloud|
 |`minSize`           |`Number`  |`true` |Minimal font size (px) used in cloud|
 |`shuffle`           |`Boolean` |`false`|If true, tags are shuffled. When `tags` are modified, cloud is re-shuffled. Default: `true`|
+|`rng`               |`Function`|`false`|Specifies a custom random number generator. Default: `Math.random`
 |`colorOptions`      |`Object`  |`false`|Random color options (see [randomColor#options](https://github.com/davidmerfield/randomColor#options))|
 |`disableRandomColor`|`Boolean` |`false`|If `true`, random color is not used|
 |`renderer`          |`Function`|`false`|Function used to render each tag|
