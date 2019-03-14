@@ -29,10 +29,10 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "array-shuffle": "^1.0.0",
     "object-assign": "^4.1.0",
     "prop-types": "^15.6.2",
-    "randomcolor": "^0.4.2"
+    "randomcolor": "^0.4.2",
+    "shuffle-array": "^1.0.1"
   },
   "peerDependencies": {
     "react": "^16.0.0"

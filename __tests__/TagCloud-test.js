@@ -2,7 +2,10 @@ jest.unmock('../src/TagCloud');
 jest.unmock('../src/defaultRenderer');
 jest.unmock('../src/helpers');
 
-jest.mock('array-shuffle', () => arr => arr.slice().reverse());
+jest.mock('shuffle-array', () => (arr, opts = {}) => {
+  opts.rng && opts.rng();
+  return arr.slice().reverse();
+});
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -120,4 +123,12 @@ describe('TagCloud', () => {
     cloud._data.forEach((t, i) => expect(t.tag).toEqual(data[i]));
   });
 
+  it('should use custom rng', () => {
+    const rng = jest.fn();
+    TestUtils.renderIntoDocument(
+      <TagCloud minSize={12} maxSize={30} tags={data} shuffle={true} randomNumberGenerator={rng} />
+    );
+
+    expect(rng).toHaveBeenCalled();
+  });
 });

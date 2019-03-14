@@ -43,13 +43,14 @@ const SimpleCloud = () => (
 
 | Option | Type | Required | Note |
 |-----------|----------|--------|---|
-|`tags`              |`Array`   |`true`|Array of objects representing tags (see [Tag object](#tag-object))|
-|`maxSize`           |`Number`  |`true` |Maximal font size (px) used in cloud|
-|`minSize`           |`Number`  |`true` |Minimal font size (px) used in cloud|
-|`shuffle`           |`Boolean` |`false`|If true, tags are shuffled. When `tags` are modified, cloud is re-shuffled. Default: `true`|
-|`colorOptions`      |`Object`  |`false`|Random color options (see [randomColor#options](https://github.com/davidmerfield/randomColor#options))|
-|`disableRandomColor`|`Boolean` |`false`|If `true`, random color is not used|
-|`renderer`          |`Function`|`false`|Function used to render each tag|
+|`tags`                 |`Array`   |`true`|Array of objects representing tags (see [Tag object](#tag-object))|
+|`maxSize`              |`Number`  |`true` |Maximal font size (px) used in cloud|
+|`minSize`              |`Number`  |`true` |Minimal font size (px) used in cloud|
+|`shuffle`              |`Boolean` |`false`|If true, tags are shuffled. When `tags` are modified, cloud is re-shuffled. Default: `true`|
+|`randomNumberGenerator`|`Function`|`false`|Specifies a custom random number generator that is being used by shuffle algorithm. Default: `Math.random`
+|`colorOptions`         |`Object`  |`false`|Random color options (see [randomColor#options](https://github.com/davidmerfield/randomColor#options))|
+|`disableRandomColor`   |`Boolean` |`false`|If `true`, random color is not used|
+|`renderer`             |`Function`|`false`|Function used to render each tag|
 
 *Note:* Furthermore you can pass any other option and it will be passed forward to the wrapping `<div />` component (e.g. `style`, `className`).
 
