@@ -5,6 +5,7 @@
   "devDependencies": {
     "react-scripts": "0.2.1"
   },
+  "homepage": "/react-tagcloud",
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
