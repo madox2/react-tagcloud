@@ -6,7 +6,7 @@ import randomColor from 'randomcolor';
 import { omitProps, includeProps, fontSizeConverter, arraysEqual, propertiesEqual } from './helpers';
 
 const eventHandlers = ['onClick', 'onDoubleClick', 'onMouseMove'];
-const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'colorOptions', 'disableRandomColor', 'rng'];
+const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'colorOptions', 'disableRandomColor', 'randomNumberGenerator'];
 
 const generateColor = (tag, {disableRandomColor, colorOptions}) => {
   if (tag.color) {
@@ -59,7 +59,7 @@ export class TagCloud extends React.Component {
   }
 
   _populate(props) {
-    const { tags, shuffle, minSize, maxSize, rng } = props;
+    const { tags, shuffle, minSize, maxSize, randomNumberGenerator } = props;
     const counts = tags.map(tag => tag.count),
           min = Math.min(...counts),
           max = Math.max(...counts);
@@ -68,7 +68,7 @@ export class TagCloud extends React.Component {
       color: generateColor(tag, props),
       fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
     }));
-    this._data = shuffle ? arrayShuffle(data, { copy: true, rng: rng }) : data;
+    this._data = shuffle ? arrayShuffle(data, { copy: true, rng: randomNumberGenerator }) : data;
   }
 
 }
@@ -82,7 +82,7 @@ TagCloud.propTypes = {
   disableRandomColor: PropTypes.bool,
   renderer: PropTypes.func,
   className: PropTypes.string,
-  rng: PropTypes.func,
+  randomNumberGenerator: PropTypes.func,
 };
 
 TagCloud.defaultProps = {

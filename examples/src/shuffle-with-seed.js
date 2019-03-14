@@ -24,6 +24,6 @@ export default () => (
   <TagCloud minSize={12}
             maxSize={35}
             tags={data}
-            rng={random} />
+            randomNumberGenerator={random} />
 );
 

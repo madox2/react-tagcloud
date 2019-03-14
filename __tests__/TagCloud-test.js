@@ -126,7 +126,7 @@ describe('TagCloud', () => {
   it('should use custom rng', () => {
     const rng = jest.fn();
     TestUtils.renderIntoDocument(
-      <TagCloud minSize={12} maxSize={30} tags={data} shuffle={true} rng={rng} />
+      <TagCloud minSize={12} maxSize={30} tags={data} shuffle={true} randomNumberGenerator={rng} />
     );
 
     expect(rng).toHaveBeenCalled();
