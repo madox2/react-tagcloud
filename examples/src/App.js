@@ -34,7 +34,7 @@ class App extends React.Component {
         ))}
         </section>
         <footer>
-          <p>2018 <a href='http://madox2.poriadne.sk'>madox2</a></p>
+          <p>2019 <a href='http://madox2.poriadne.sk'>madox2</a></p>
         </footer>
       </main>
     )
