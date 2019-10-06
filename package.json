@@ -2,6 +2,14 @@
   "name": "react-tagcloud",
   "version": "1.4.0",
   "description": "Tag/word cloud component for react",
+  "keywords": [
+    "react-tagcloud",
+    "react",
+    "tag-cloud",
+    "word-cloud",
+    "tagcloud",
+    "wordcloud"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel -d lib/ src/",
