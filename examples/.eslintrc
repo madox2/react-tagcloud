@@ -1,0 +1,10 @@
+{
+  "extends": "react-app",
+  "plugins": ["prettier"],
+    "rules": {
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi": ["error", "never"],
+        "prettier/prettier": "warn",
+    }
+}
