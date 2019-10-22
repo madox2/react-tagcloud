@@ -1,23 +1,10 @@
 {
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+  "extends": "react-app",
+  "plugins": ["prettier"],
+    "rules": {
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi": ["error", "never"],
+        "prettier/prettier": "warn",
     }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "quotes": [0],
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1
-  }
 }
