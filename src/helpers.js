@@ -1,28 +1,4 @@
 /**
- * Creates new object from target excluding given properties.
- */
-export const omitProps = (target, props) => {
-  return Object.keys(target).reduce((r, key) => {
-    if (!~props.indexOf(key)) {
-      r[key] = target[key]
-    }
-    return r
-  }, {})
-}
-
-/**
- * Creates new object from target including all available properties.
- */
-export const includeProps = (target, props) => {
-  return Object.keys(target).reduce((r, key) => {
-    if (~props.indexOf(key) && key in target) {
-      r[key] = target[key]
-    }
-    return r
-  }, {})
-}
-
-/**
  * Computes appropriate font size of tag.
  */
 export const fontSizeConverter = (count, min, max, minSize, maxSize) => {
@@ -36,15 +12,37 @@ export const fontSizeConverter = (count, min, max, minSize, maxSize) => {
 }
 
 /**
- * Returns true if arrays contains the same elements.
+ * Creates an object composed of not omitted object properties.
  */
-export const arraysEqual = (arr1, arr2) => {
-  if (arr1.length !== arr2.length) {
-    return false
-  }
-  return arr1.every((o, i) => o === arr2[i])
+export const omit = (obj, keys) => {
+  return Object.keys(obj).reduce((r, key) => {
+    if (!~keys.indexOf(key)) {
+      r[key] = obj[key]
+    }
+    return r
+  }, {})
 }
 
-export const propertiesEqual = (o1, o2, properties) => {
-  return properties.every(prop => o1[prop] === o2[prop])
+/**
+ * Creates an object composed of the picked object properties.
+ */
+export function pick(obj, keys) {
+  return keys.reduce((picked, key) => {
+    picked[key] = obj[key]
+    return picked
+  }, {})
+}
+
+/**
+ * Returns an array of object values.
+ */
+export function values(obj) {
+  return Object.values(obj)
+}
+
+/**
+ * Returns an array of object keys.
+ */
+export function keys(obj) {
+  return Object.keys(obj)
 }
