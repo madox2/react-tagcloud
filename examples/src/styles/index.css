@@ -78,3 +78,16 @@ a.github-link {
 .simple-cloud .tag-cloud-tag {
   cursor: pointer;
 }
+.controls {
+  padding: 10px 0px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.controls > * {
+  padding: 0px 10px;
+}
+.controls > input[type="number"] {
+  width: 40px;
+}

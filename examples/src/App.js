@@ -6,12 +6,13 @@ const BASE_URL =
   'https://raw.githubusercontent.com/madox2/react-tagcloud/master/examples/src/'
 
 const examples = [
-  { file: 'simple-cloud.js', title: 'Simple cloud', key: 1 },
-  { file: 'custom-color-options.js', title: 'Custom color options', key: 2 },
-  { file: 'custom-styles.js', title: 'Custom styles', key: 3 },
-  { file: 'custom-renderer.js', title: 'Custom renderer', key: 4 },
-  { file: 'shuffle-with-seed.js', title: 'Shuffle with seed', key: 5 },
-]
+  { file: 'simple-cloud.js', title: 'Simple cloud' },
+  { file: 'interactive-cloud.js', title: 'Interactive cloud' },
+  { file: 'custom-color-options.js', title: 'Custom color options' },
+  { file: 'custom-styles.js', title: 'Custom styles' },
+  { file: 'custom-renderer.js', title: 'Custom renderer' },
+  { file: 'shuffle-with-seed.js', title: 'Shuffle with seed' },
+].map((example, key) => ({ ...example, key }))
 
 class App extends React.Component {
   componentDidMount() {
