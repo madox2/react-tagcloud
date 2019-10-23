@@ -66,10 +66,9 @@ function randomize(props) {
 export function TagCloud(props) {
   const [data, setData] = useState([])
   // randomize (color, shuffle) when tags or props change
-  useEffect(() => setData(randomize(props)), [
-    ...values(pick(props, randomizeDeps)),
-    ...props.tags,
-  ])
+  useEffect(() => {
+    setData(randomize(props))
+  }, [...values(pick(props, randomizeDeps)), props.tags.length])
   const other = omit(props, [...cloudPropNames, ...handlersPropNames])
   return <div {...other}>{renderTags(props, data)}</div>
 }
