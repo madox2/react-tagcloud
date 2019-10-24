@@ -13,6 +13,7 @@
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel -d lib/ src/",
+    "compile:watch": "while inotifywait -e close_write src/*.js; do yarn compile; done",
     "prepublish": "npm run compile",
     "test": "jest",
     "lint": "eslint src/**"

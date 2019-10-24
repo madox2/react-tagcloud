@@ -12,6 +12,25 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+To run local react-tagcloud sources in development, link the folowing packages:
+
+```
+# link react-tagcloud into examples
+cd ..
+yarn link
+cd examples
+yarn link react-tagcloud
+
+# link react and webpack to not colide with react-scripts
+cd node_modules/react
+yarn link
+cd ../webpack
+yarn link
+cd ../../../
+yarn link react webpack
+cd examples
+```
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
