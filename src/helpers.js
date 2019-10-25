@@ -34,13 +34,6 @@ export function pick(obj, keys) {
 }
 
 /**
- * Returns an array of object values.
- */
-export function values(obj) {
-  return Object.values(obj)
-}
-
-/**
  * Returns an array of object keys.
  */
 export function keys(obj) {

@@ -4,7 +4,7 @@ import arrayShuffle from 'shuffle-array'
 import randomColor from 'randomcolor'
 
 import { defaultRenderer } from './defaultRenderer'
-import { fontSizeConverter, keys, omit, pick, values } from './helpers'
+import { fontSizeConverter, keys, omit, pick } from './helpers'
 
 const handlersPropNames = ['onClick', 'onDoubleClick', 'onMouseMove']
 const cloudPropNames = [
@@ -17,8 +17,6 @@ const cloudPropNames = [
   'disableRandomColor',
   'randomNumberGenerator',
 ]
-const randomizeDeps = ['colorOptions', 'shuffle', 'disableRandomColor']
-
 function generateColor(tag, { disableRandomColor, colorOptions }) {
   if (tag.color) {
     return tag.color
@@ -65,10 +63,16 @@ function randomize(props) {
 
 export function TagCloud(props) {
   const [data, setData] = useState([])
-  // randomize (color, shuffle) when tags or props change
+  const tagsComparison = props.tags.map(t => t.key || t.value).join(':')
+  // randomize (color, shuffle) when tags or certain props change
   useEffect(() => {
     setData(randomize(props))
-  }, [...values(pick(props, randomizeDeps)), props.tags.length])
+  }, [
+    props.colorOptions,
+    props.shuffle,
+    props.disableRandomColor,
+    tagsComparison,
+  ])
   const other = omit(props, [...cloudPropNames, ...handlersPropNames])
   return <div {...other}>{renderTags(props, data)}</div>
 }

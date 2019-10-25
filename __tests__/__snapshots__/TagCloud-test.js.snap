@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagCloud should render not shuffled tags 1`] = `
+<div>
+  <div
+    class="tag-cloud"
+  >
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 30px;"
+    >
+      tag1
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 22px;"
+    >
+      tag2
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 26px;"
+    >
+      tag3
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 12px;"
+    >
+      tag4
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagCloud should render tags with default renderer 1`] = `
+<div>
+  <div
+    class="tag-cloud"
+  >
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 12px;"
+    >
+      tag4
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 26px;"
+    >
+      tag3
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 22px;"
+    >
+      tag2
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 30px;"
+    >
+      tag1
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TagCloud should use custom renderer 1`] = `
+<div>
+  <div
+    class="tag-cloud"
+  >
+    <a
+      class="tag-30"
+      href="#"
+    >
+      tag1-25
+    </a>
+    <a
+      class="tag-22"
+      href="#"
+    >
+      tag2-15
+    </a>
+    <a
+      class="tag-26"
+      href="#"
+    >
+      tag3-20
+    </a>
+    <a
+      class="tag-12"
+      href="#"
+    >
+      tag4-3
+    </a>
+  </div>
+</div>
+`;
