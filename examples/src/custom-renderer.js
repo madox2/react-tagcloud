@@ -36,7 +36,7 @@ const customRenderer = (tag, size, color) => (
     style={{
       animation: 'blinker 3s linear infinite',
       animationDelay: `${Math.random() * 2}s`,
-      fontSize: `${size}em`,
+      fontSize: `${size / 2}em`,
       border: `2px solid ${color}`,
       margin: '3px',
       padding: '3px',
@@ -49,5 +49,5 @@ const customRenderer = (tag, size, color) => (
 )
 
 export default () => (
-  <TagCloud tags={data} minSize={1} maxSize={2} renderer={customRenderer} />
+  <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />
 )
