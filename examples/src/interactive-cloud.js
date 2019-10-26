@@ -22,12 +22,6 @@ const defaultData = [
   { value: 'NPM', count: 11 },
 ]
 
-/* CSS:
-.simple-cloud .tag-cloud-tag {
-  cursor: pointer;
-}
-*/
-
 export default () => {
   const [minSize, setMinSize] = useState(12)
   const [maxSize, setMaxSize] = useState(35)
@@ -37,33 +31,43 @@ export default () => {
   return (
     <div>
       <div className="controls">
-        <span>Min</span>
-        <input
-          type="number"
-          min={0}
-          value={minSize}
-          onChange={e => setMinSize(parseInt(e.target.value, 10))}
-        />
-        <span>Max</span>
-        <input
-          type="number"
-          min={0}
-          value={maxSize}
-          onChange={e => setMaxSize(parseInt(e.target.value, 10))}
-        />
-        <span>Shuffle</span>
-        <input
-          type="checkbox"
-          checked={shuffle}
-          onChange={() => setShuffle(!shuffle)}
-        />
-        <span>Color</span>
-        <input
-          type="checkbox"
-          checked={randomColor}
-          onChange={() => setRandomColor(!randomColor)}
-        />
-        <button onClick={() => setData(data.slice(0, -1))}>Pop data</button>
+        <div>
+          <span>Min</span>
+          <input
+            type="number"
+            min={0}
+            value={minSize}
+            onChange={e => setMinSize(parseInt(e.target.value, 10))}
+          />
+        </div>
+        <div>
+          <span>Max</span>
+          <input
+            type="number"
+            min={0}
+            value={maxSize}
+            onChange={e => setMaxSize(parseInt(e.target.value, 10))}
+          />
+        </div>
+        <div>
+          <span>Shuffle</span>
+          <input
+            type="checkbox"
+            checked={shuffle}
+            onChange={() => setShuffle(!shuffle)}
+          />
+        </div>
+        <div>
+          <span>Color</span>
+          <input
+            type="checkbox"
+            checked={randomColor}
+            onChange={() => setRandomColor(!randomColor)}
+          />
+        </div>
+        <div>
+          <button onClick={() => setData(data.slice(0, -1))}>Pop</button>
+        </div>
       </div>
       <TagCloud
         minSize={minSize}
@@ -72,6 +76,20 @@ export default () => {
         shuffle={shuffle}
         disableRandomColor={!randomColor}
         className="simple-cloud"
+        onClick={tag => {
+          const value = prompt('Edit tag value', tag.value)
+          if (value == null) {
+            return
+          }
+          const newTag = { value, count: tag.count }
+          const newData = data.map(t => {
+            if (t.value === tag.value) {
+              return newTag
+            }
+            return t
+          })
+          setData(newData)
+        }}
       />
     </div>
   )
