@@ -33,7 +33,8 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-header > h1, header > h3 {
+header > h1,
+header > h3 {
   margin: 5px;
 }
 section {
@@ -70,11 +71,27 @@ a.github-link {
 }
 /* styles needed by examples */
 @keyframes blinker {
-  50% { opacity: 0.0; }
+  50% {
+    opacity: 0;
+  }
 }
 .myTagCloud span {
   text-decoration: underline;
 }
 .simple-cloud .tag-cloud-tag {
   cursor: pointer;
+}
+.controls {
+  padding: 10px 0px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.controls > div > * {
+  margin: 4px 5px;
+}
+.controls input[type='number'] {
+  width: 40px;
 }

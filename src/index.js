@@ -1,2 +1,1 @@
-export { TagCloud } from './TagCloud';
-
+export { TagCloud } from './TagCloud'

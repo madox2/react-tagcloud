@@ -6,7 +6,5 @@
         "comma-dangle": ["error", "always-multiline"],
         "semi": ["error", "never"],
         "prettier/prettier": "warn",
-        "react-hooks/exhaustive-deps": "off",
-        "jsx-a11y/anchor-is-valid": "off"
     }
 }

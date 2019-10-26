@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaultRenderer should render tag 1`] = `
+<div>
+  <span
+    class="tag-cloud-tag"
+    style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 18px;"
+  >
+    tag1
+  </span>
+</div>
+`;

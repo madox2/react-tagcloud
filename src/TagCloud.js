@@ -1,76 +1,80 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { defaultRenderer } from './defaultRenderer';
-import arrayShuffle from 'shuffle-array';
-import randomColor from 'randomcolor';
-import { omitProps, includeProps, fontSizeConverter, arraysEqual, propertiesEqual } from './helpers';
+import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import arrayShuffle from 'shuffle-array'
+import randomColor from 'randomcolor'
 
-const eventHandlers = ['onClick', 'onDoubleClick', 'onMouseMove'];
-const cloudProps = ['tags', 'shuffle', 'renderer', 'maxSize', 'minSize', 'colorOptions', 'disableRandomColor', 'randomNumberGenerator'];
+import { defaultRenderer } from './defaultRenderer'
+import { fontSizeConverter, keys, omit, pick } from './helpers'
 
-const generateColor = (tag, {disableRandomColor, colorOptions}) => {
+const handlersPropNames = ['onClick', 'onDoubleClick', 'onMouseMove']
+const cloudPropNames = [
+  'tags',
+  'shuffle',
+  'renderer',
+  'maxSize',
+  'minSize',
+  'colorOptions',
+  'disableRandomColor',
+  'randomNumberGenerator',
+]
+function generateColor(tag, { disableRandomColor, colorOptions }) {
   if (tag.color) {
-    return tag.color;
+    return tag.color
   }
   if (disableRandomColor) {
-    return undefined;
+    return undefined
   }
-  return randomColor(colorOptions);
-};
+  return randomColor(colorOptions)
+}
 
-export class TagCloud extends React.Component {
-
-  componentWillReceiveProps(newProps) {
-    const propsEqual = propertiesEqual(this.props, newProps, Object.keys(TagCloud.propTypes))
-    const tagsEqual = arraysEqual(newProps.tags, this.props.tags);
-    if (!tagsEqual || !propsEqual) {
-      this._populate(newProps);
+function withTagCloudHandlers(elem, tag, cloudHandlers) {
+  const origHandlers = pick(elem.props, handlersPropNames)
+  const props = keys(cloudHandlers).reduce((acc, handlerName) => {
+    acc[handlerName] = e => {
+      cloudHandlers[handlerName] && cloudHandlers[handlerName](tag, e)
+      origHandlers[handlerName] && origHandlers(e)
     }
-  }
+    return acc
+  }, {})
+  return React.cloneElement(elem, props)
+}
 
-  componentWillMount() {
-    this._populate(this.props);
-  }
+function renderTags(props, data) {
+  const { minSize, maxSize } = props
+  const counts = data.map(({ tag }) => tag.count),
+    min = Math.min(...counts),
+    max = Math.max(...counts)
+  const cloudHandlers = pick(props, handlersPropNames)
+  return data.map(({ tag, color }) => {
+    const fontSize = fontSizeConverter(tag.count, min, max, minSize, maxSize)
+    const elem = props.renderer(tag, fontSize, color)
+    return withTagCloudHandlers(elem, tag, cloudHandlers)
+  })
+}
 
-  render() {
-    const props = omitProps(this.props, [...cloudProps, ...eventHandlers]);
-    const tagElements = this._attachEventHandlers();
-    return (
-      <div {...props}>
-      { tagElements }
-      </div>
-    );
-  }
+function randomize(props) {
+  const { tags, shuffle, randomNumberGenerator } = props
+  const data = tags.map(tag => ({
+    tag,
+    color: generateColor(tag, props),
+  }))
+  return shuffle ? arrayShuffle(data, { rng: randomNumberGenerator }) : data
+}
 
-  _attachEventHandlers() {
-    const cloudHandlers = includeProps(this.props, eventHandlers);
-    return this._data.map(({tag, fontSize, color}) => {
-      const elem = this.props.renderer(tag, fontSize, color);
-      const tagHandlers = includeProps(elem.props, eventHandlers);
-      const globalHandlers = Object.keys(cloudHandlers).reduce((r, k) => {
-        r[k] = e => {
-          cloudHandlers[k](tag, e);
-          tagHandlers[k] && tagHandlers(e);
-        }
-        return r;
-      }, {});
-      return React.cloneElement(elem, globalHandlers);
-    });
-  }
-
-  _populate(props) {
-    const { tags, shuffle, minSize, maxSize, randomNumberGenerator } = props;
-    const counts = tags.map(tag => tag.count),
-          min = Math.min(...counts),
-          max = Math.max(...counts);
-    const data = tags.map(tag => ({
-      tag,
-      color: generateColor(tag, props),
-      fontSize: fontSizeConverter(tag.count, min, max, minSize, maxSize)
-    }));
-    this._data = shuffle ? arrayShuffle(data, { copy: true, rng: randomNumberGenerator }) : data;
-  }
-
+export function TagCloud(props) {
+  const [data, setData] = useState([])
+  const tagsComparison = props.tags.map(t => t.key || t.value).join(':')
+  // randomize (color, shuffle) when tags or certain props change
+  useEffect(() => {
+    setData(randomize(props))
+  }, [
+    props.colorOptions,
+    props.shuffle,
+    props.disableRandomColor,
+    tagsComparison,
+  ])
+  const other = omit(props, [...cloudPropNames, ...handlersPropNames])
+  return <div {...other}>{renderTags(props, data)}</div>
 }
 
 TagCloud.propTypes = {
@@ -83,11 +87,11 @@ TagCloud.propTypes = {
   renderer: PropTypes.func,
   className: PropTypes.string,
   randomNumberGenerator: PropTypes.func,
-};
+}
 
 TagCloud.defaultProps = {
   renderer: defaultRenderer,
   shuffle: true,
   className: 'tag-cloud',
-  colorOptions: {}
-};
+  colorOptions: {},
+}
