@@ -10,6 +10,9 @@ You can find demo on [preview page](https://madox2.github.io/react-tagcloud/).
 
 ```
 npm install react-tagcloud
+
+# react < 16.8.0
+npm install react-tagcloud@1.4
 ```
 
 ## Basic usage
