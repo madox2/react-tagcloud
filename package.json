@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.6.3",
-    "object-assign": "^4.1.0",
     "prop-types": "^15.6.2",
     "randomcolor": "^0.5.4",
     "shuffle-array": "^1.0.1"
