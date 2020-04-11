@@ -13,7 +13,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "react-scripts build",
     "predeploy": "SKIP_PREFLIGHT_CHECK=true yarn build",
     "deploy": "gh-pages -d build",
