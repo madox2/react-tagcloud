@@ -7,7 +7,7 @@ export const fontSizeConverter = (count, min, max, minSize, maxSize) => {
     return Math.round((minSize + maxSize) / 2)
   }
   return Math.round(
-    ((count - min) * (maxSize - minSize)) / (max - min) + minSize
+    ((count - min) * (maxSize - minSize)) / (max - min) + minSize,
   )
 }
 

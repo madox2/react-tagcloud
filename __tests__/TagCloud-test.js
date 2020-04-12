@@ -30,7 +30,7 @@ describe('TagCloud', () => {
 
   it('should render not shuffled tags', () => {
     expectToMatchSnapshot(
-      <TagCloud shuffle={false} minSize={12} maxSize={30} tags={data} />
+      <TagCloud shuffle={false} minSize={12} maxSize={30} tags={data} />,
     )
   })
 
@@ -51,7 +51,7 @@ describe('TagCloud', () => {
         tags={data}
         renderer={customRenderer}
         shuffle={false}
-      />
+      />,
     )
   })
 
@@ -64,7 +64,7 @@ describe('TagCloud', () => {
         shuffle={false}
         tags={data}
         onClick={onClickSpy}
-      />
+      />,
     )
     const tag3 = cloud.find('.tag-cloud-tag').at(2)
     expect(tag3).not.toBeUndefined()
@@ -75,7 +75,7 @@ describe('TagCloud', () => {
         value: 'tag3',
         count: 20,
       },
-      any(Object)
+      any(Object),
     )
   })
 
@@ -87,7 +87,7 @@ describe('TagCloud', () => {
         maxSize={30}
         tags={data}
         randomNumberGenerator={rng}
-      />
+      />,
     )
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
@@ -106,7 +106,7 @@ describe('TagCloud', () => {
         maxSize={30}
         tags={data}
         randomNumberGenerator={rng}
-      />
+      />,
     )
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
@@ -136,7 +136,7 @@ describe('TagCloud', () => {
         tags={data}
         shuffle={true}
         randomNumberGenerator={rng}
-      />
+      />,
     )
     expect(rng).toHaveBeenCalled()
   })

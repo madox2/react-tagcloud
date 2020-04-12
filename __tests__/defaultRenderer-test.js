@@ -6,7 +6,7 @@ describe('defaultRenderer', () => {
     const tag = defaultRenderer(
       { value: 'tag1', key: 'key1', count: 33 },
       18,
-      'red'
+      'red',
     )
     expectToMatchSnapshot(tag)
   })
