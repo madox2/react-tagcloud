@@ -1,5 +1,7 @@
 # react-tagcloud
 
+![](https://github.com/madox2/react-tagcloud/workflows/Tests/badge.svg)
+
 Simple and extensible tag/word cloud React component.
 
 You can find demo on [preview page](https://madox2.github.io/react-tagcloud/).
