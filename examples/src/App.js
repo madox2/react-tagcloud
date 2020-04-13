@@ -33,6 +33,19 @@ class App extends React.Component {
               <i className="fa fa-github fa-lg"></i>
             </a>
           </h3>
+
+          <h3>
+            <a
+              className="github-button"
+              href="https://github.com/madox2/react-tagcloud"
+              data-icon="octicon-star"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star madox2/react-tagcloud on GitHub"
+            >
+              Star
+            </a>
+          </h3>
         </header>
         <section>
           {examples.map(e => (
@@ -46,7 +59,7 @@ class App extends React.Component {
         </section>
         <footer>
           <p>
-            2019 <a href="http://madox2.poriadne.sk">madox2</a>
+            2020 <a href="http://madox2.poriadne.sk">madox2</a>
           </p>
         </footer>
       </main>
