@@ -4,7 +4,7 @@
 
 Simple and extensible tag/word cloud React component.
 
-You can find demo on [preview page](https://madox2.github.io/react-tagcloud/).
+See the [demo](https://madox2.github.io/react-tagcloud/).
 
 ![preview tag-cloud preview](./demo-min.png)
 
@@ -12,6 +12,9 @@ You can find demo on [preview page](https://madox2.github.io/react-tagcloud/).
 
 ```
 npm install react-tagcloud
+
+# or with yarn
+yarn install react-tagcloud
 
 # react < 16.8.0
 npm install react-tagcloud@1.4
@@ -46,30 +49,30 @@ const SimpleCloud () => (
 
 ### Options
 
-`<TagCloud />` component accepts options listed below:
+`<TagCloud />` component has props listed below:
 
 | Option | Type | Required | Note |
 |-----------|----------|--------|---|
-|`tags`                 |`Array`   |`true`|Array of objects representing tags (see [Tag object](#tag-object))|
-|`maxSize`              |`Number`  |`true` |Maximal font size (px) used in cloud|
-|`minSize`              |`Number`  |`true` |Minimal font size (px) used in cloud|
+|`tags`                 |`Array`   |`true`|Array of objects that represent tags (see [Tag object](#tag-object))|
+|`maxSize`              |`Number`  |`true` |Maximal font size (in px) used in cloud|
+|`minSize`              |`Number`  |`true` |Minimal font size (in px) used in cloud|
 |`shuffle`              |`Boolean` |`false`|If true, tags are shuffled. When `tags` are modified, cloud is re-shuffled. Default: `true`|
 |`randomNumberGenerator`|`Function`|`false`|Specifies a custom random number generator that is being used by shuffle algorithm. Default: `Math.random`
 |`colorOptions`         |`Object`  |`false`|Random color options (see [randomColor#options](https://github.com/davidmerfield/randomColor#options))|
 |`disableRandomColor`   |`Boolean` |`false`|If `true`, random color is not used|
-|`renderer`             |`Function`|`false`|Function used to render each tag|
+|`renderer`             |`Function`|`false`|Function used to render tag|
 
-*Note:* Furthermore you can pass any other option and it will be passed forward to the wrapping `<div />` component (e.g. `style`, `className`).
+*Note:* Furthermore you can pass any other prop and it will be forwarded to the wrapping `<div />` component (e.g. `style`, `className`).
 
 ### Tag object
 
-Each tag is represented by object containing properties:
+Each tag is represented by object literal having following properties:
 
 | Property | Type | Required | Note |
 |----------|------|----------|------|
 |`value`|`String`|`true` |String value to be displayed|
-|`count`|`Number`|`true` |Represents frequency of the tag. It is used to calculate tag size|
-|`key`  |`String`|`false`|Tag element key. If it is not provided, `value` property will be used instead (however it can fail if you don't have unique tag values. It is highly recommed to use `key` property if you are not sure that tag value is unique)|
+|`count`|`Number`|`true` |Represents frequency of the tag that is used to calculate tag size|
+|`key`  |`String`|`false`|Tag element key. If it is not provided, `value` property will be used instead (however it can fail if you don't have unique tag values. It is highly recommeded to use `key` property)|
 |`color`|`String`|`false`|Represents color of the tag. If it is not provided, random color will be used instead|
 
 ### Events
@@ -83,8 +86,8 @@ Currently supported events: `onClick`, `onDoubleClick`, `onMouseMove`
 
 ### Styles
 
-Default class names are `tag-cloud` for wrapping container, and `tag-cloud-tag` for particular tag.
-Styles passed to `<TagCloud />` props will be applied to wrapping container.
+Default class names are `tag-cloud` for the wrapping container, and `tag-cloud-tag` for a particular tag.
+Styles passed to `<TagCloud />` props will be applied to the wrapping container.
 
 ### Renderer
 
@@ -121,21 +124,21 @@ const CustomizedCloud () => (
 Install dev modules:
 
 ```
-npm install
+yarn install
 ```
 
 ### Run unit tests
 
 ```
-npm test
+yarn test
 ```
 
 ### Run examples
 
 ```
 cd examples
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 and open browser at `http://localhost:3000`
