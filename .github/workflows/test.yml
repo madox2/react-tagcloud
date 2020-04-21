@@ -1,13 +1,20 @@
+on: push
 name: Tests
-
-on: [push]
-
 jobs:
-  build:
-
+  lint-and-test:
+    name: Test
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.2
+    - uses: actions/checkout@master
+    - name: Install
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: install
+    - name: Lint
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: lint
+    - name: Test
+      uses: CultureHQ/actions-yarn@master
+      with:
+        args: test
