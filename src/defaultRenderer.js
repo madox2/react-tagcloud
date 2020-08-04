@@ -5,7 +5,7 @@ export const defaultRenderer = (tag, size, color) => {
   const key = tag.key || tag.value
   const style = { ...styles, color, fontSize }
   return (
-    <span className="tag-cloud-tag" style={style} key={key}>
+    <span className="tag-cloud-tag" style={style} key={key} title={`${tag.value} :${tag.count}`}>
       {tag.value}
     </span>
   )
