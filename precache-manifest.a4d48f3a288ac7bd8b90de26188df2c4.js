@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a0209e8af5a042668f63411747a9b257",
+    "revision": "60750235628b9d5f6a6e17ed44a5c924",
     "url": "/react-tagcloud/index.html"
   },
   {
-    "revision": "fbd0d09c44c2388ae773",
+    "revision": "59bc553c7ab3410ea972",
     "url": "/react-tagcloud/static/css/main.1eaf227e.chunk.css"
   },
   {
-    "revision": "0375871ac4b2cc7cd7e8",
-    "url": "/react-tagcloud/static/js/2.c70e1e98.chunk.js"
+    "revision": "1ef33cc57405a7c1f146",
+    "url": "/react-tagcloud/static/js/2.e89d2d31.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/react-tagcloud/static/js/2.c70e1e98.chunk.js.LICENSE.txt"
+    "url": "/react-tagcloud/static/js/2.e89d2d31.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fbd0d09c44c2388ae773",
-    "url": "/react-tagcloud/static/js/main.d67bb3c0.chunk.js"
+    "revision": "59bc553c7ab3410ea972",
+    "url": "/react-tagcloud/static/js/main.33418c45.chunk.js"
   },
   {
     "revision": "79a9b7065ac2c6e74a4e",

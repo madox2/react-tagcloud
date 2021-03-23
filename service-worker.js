@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-tagcloud/precache-manifest.a412f65762eb62efd31790db80969716.js"
+  "/react-tagcloud/precache-manifest.a4d48f3a288ac7bd8b90de26188df2c4.js"
 );
 
 self.addEventListener('message', (event) => {
