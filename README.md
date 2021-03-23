@@ -118,6 +118,7 @@ const CustomizedCloud () => (
 * [Simple tag cloud](https://github.com/madox2/react-tagcloud/blob/master/examples/src/simple-cloud.js)
 * [Custom color options](https://github.com/madox2/react-tagcloud/blob/master/examples/src/custom-color-options.js)
 * [Custom styles](https://github.com/madox2/react-tagcloud/blob/master/examples/src/custom-styles.js)
+* [Custom tag props](https://github.com/madox2/react-tagcloud/blob/master/examples/src/tag-props.js)
 * [Custom renderer](https://github.com/madox2/react-tagcloud/blob/master/examples/src/custom-renderer.js)
 
 ## Testing
