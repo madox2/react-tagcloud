@@ -6,7 +6,13 @@ import randomColor from 'randomcolor'
 import { defaultRenderer } from './defaultRenderer'
 import { fontSizeConverter, keys, omit, pick } from './helpers'
 
-const handlersPropNames = ['onClick', 'onDoubleClick', 'onMouseMove']
+const handlersPropNames = [
+  'onClick',
+  'onDoubleClick',
+  'onMouseMove',
+  'onMouseOver',
+  'onMouseOut',
+]
 const cloudPropNames = [
   'tags',
   'shuffle',

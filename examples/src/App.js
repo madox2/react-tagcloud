@@ -11,6 +11,7 @@ const examples = [
   { file: 'interactive-cloud.js', title: 'Interactive cloud' },
   { file: 'custom-color-options.js', title: 'Custom color options' },
   { file: 'custom-styles.js', title: 'Custom styles' },
+  { file: 'tag-props.js', title: 'Custom tag props' },
   { file: 'custom-renderer.js', title: 'Custom renderer' },
   { file: 'shuffle-with-seed.js', title: 'Shuffle with seed' },
 ].map((example, key) => ({ ...example, key }))

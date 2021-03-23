@@ -74,6 +74,7 @@ Each tag is represented by object literal having following properties:
 |`count`|`Number`|`true` |Represents frequency of the tag that is used to calculate tag size|
 |`key`  |`String`|`false`|Tag element key. If it is not provided, `value` property will be used instead (however it can fail if you don't have unique tag values. It is highly recommeded to use `key` property)|
 |`color`|`String`|`false`|Represents color of the tag. If it is not provided, random color will be used instead|
+|`props`|`Object`|`false`|Props to be passed to a particular tag component|
 
 ### Events
 
