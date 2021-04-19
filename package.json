@@ -42,7 +42,7 @@
     "yarn": "^1.22.4"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
