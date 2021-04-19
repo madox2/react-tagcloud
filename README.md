@@ -14,7 +14,7 @@ See the [demo](https://madox2.github.io/react-tagcloud/).
 npm install react-tagcloud
 
 # or with yarn
-yarn install react-tagcloud
+yarn add react-tagcloud
 
 # react < 16.8.0
 npm install react-tagcloud@1.4
