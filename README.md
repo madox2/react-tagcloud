@@ -108,7 +108,7 @@ const customRenderer = (tag, size, color) => {
   )
 }
 
-const CustomizedCloud () => (
+const CustomizedCloud = () => (
   <TagCloud tags={data} minSize={1} maxSize={5} renderer={customRenderer} />
 )
 ```
