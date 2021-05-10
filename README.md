@@ -35,7 +35,7 @@ const data = [
   { value: 'CSS3', count: 20 },
 ]
 
-const SimpleCloud () => (
+const SimpleCloud = () => (
   <TagCloud
     minSize={12}
     maxSize={35}
