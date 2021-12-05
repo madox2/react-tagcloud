@@ -5,6 +5,7 @@
         "quotes": ["error", "single", { "avoidEscape": true }],
         "comma-dangle": ["error", "always-multiline"],
         "semi": ["error", "never"],
-        "prettier/prettier": "warn",
+        "import/no-anonymous-default-export": "off",
+        "prettier/prettier": "warn"
     }
 }
