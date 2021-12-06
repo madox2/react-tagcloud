@@ -14,8 +14,6 @@ jest.mock('randomcolor', () => (arr, opts = {}) => {
   return 'red'
 })
 
-const { createSpy, any } = jasmine
-
 describe('TagCloud', () => {
   const data = [
     { value: 'tag1', count: 25 },
@@ -56,7 +54,7 @@ describe('TagCloud', () => {
   })
 
   it('should trigger onClick event', () => {
-    const onClickSpy = createSpy()
+    const onClickSpy = jest.fn()
     const cloud = mount(
       <TagCloud
         minSize={12}
@@ -75,7 +73,7 @@ describe('TagCloud', () => {
         value: 'tag3',
         count: 20,
       },
-      any(Object),
+      expect.any(Object),
     )
   })
 
