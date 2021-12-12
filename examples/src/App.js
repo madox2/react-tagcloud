@@ -49,7 +49,7 @@ class App extends React.Component {
           </h3>
         </header>
         <section>
-          {examples.map(e => (
+          {examples.map((e) => (
             <Example
               title={e.title}
               element={require(`./${e.file}`).default}
@@ -86,8 +86,8 @@ class Example extends React.Component {
 
   fetch() {
     fetch(BASE_URL + this.props.file)
-      .then(response => response.text())
-      .then(text => {
+      .then((response) => response.text())
+      .then((text) => {
         this.setState({
           fetched: true,
           detail: text,

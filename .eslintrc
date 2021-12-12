@@ -1,12 +1,12 @@
 {
   "extends": "react-app",
   "plugins": ["prettier"],
-    "rules": {
-        "quotes": ["error", "single", { "avoidEscape": true }],
-        "comma-dangle": ["error", "always-multiline"],
-        "semi": ["error", "never"],
-        "prettier/prettier": "warn",
-        "react-hooks/exhaustive-deps": "off",
-        "jsx-a11y/anchor-is-valid": "off"
-    }
+  "rules": {
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "never"],
+    "prettier/prettier": "warn",
+    "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/anchor-is-valid": "off"
+  }
 }

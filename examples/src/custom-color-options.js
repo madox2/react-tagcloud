@@ -35,6 +35,6 @@ export default () => (
     maxSize={35}
     colorOptions={options}
     tags={data}
-    onClick={tag => console.log('clicking on tag:', tag)}
+    onClick={(tag) => console.log('clicking on tag:', tag)}
   />
 )

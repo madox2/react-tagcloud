@@ -38,6 +38,6 @@ export default () => (
     maxSize={35}
     tags={data}
     className="simple-cloud"
-    onClick={tag => alert(`'${tag.value}' was selected!`)}
+    onClick={(tag) => alert(`'${tag.value}' was selected!`)}
   />
 )

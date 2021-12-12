@@ -37,7 +37,7 @@ export default () => {
             type="number"
             min={0}
             value={minSize}
-            onChange={e => setMinSize(parseInt(e.target.value, 10))}
+            onChange={(e) => setMinSize(parseInt(e.target.value, 10))}
           />
         </div>
         <div>
@@ -46,7 +46,7 @@ export default () => {
             type="number"
             min={0}
             value={maxSize}
-            onChange={e => setMaxSize(parseInt(e.target.value, 10))}
+            onChange={(e) => setMaxSize(parseInt(e.target.value, 10))}
           />
         </div>
         <div>
@@ -76,13 +76,13 @@ export default () => {
         shuffle={shuffle}
         disableRandomColor={!randomColor}
         className="simple-cloud"
-        onClick={tag => {
+        onClick={(tag) => {
           const value = prompt('Edit tag value', tag.value)
           if (value == null) {
             return
           }
           const newTag = { value, count: tag.count }
-          const newData = data.map(t => {
+          const newData = data.map((t) => {
             if (t.value === tag.value) {
               return newTag
             }

@@ -36,7 +36,7 @@ function generateColor(tag, { disableRandomColor, colorOptions }) {
 function withTagCloudHandlers(elem, tag, cloudHandlers) {
   const origHandlers = pick(elem.props, handlersPropNames)
   const props = keys(cloudHandlers).reduce((acc, handlerName) => {
-    acc[handlerName] = e => {
+    acc[handlerName] = (e) => {
       cloudHandlers[handlerName] && cloudHandlers[handlerName](tag, e)
       origHandlers[handlerName] && origHandlers(e)
     }
@@ -60,7 +60,7 @@ function renderTags(props, data) {
 
 function randomize(props) {
   const { tags, shuffle, randomNumberGenerator } = props
-  const data = tags.map(tag => ({
+  const data = tags.map((tag) => ({
     tag,
     color: generateColor(tag, props),
   }))
@@ -69,7 +69,7 @@ function randomize(props) {
 
 export function TagCloud(props) {
   const [data, setData] = useState([])
-  const tagsComparison = props.tags.map(t => t.key || t.value).join(':')
+  const tagsComparison = props.tags.map((t) => t.key || t.value).join(':')
   // randomize (color, shuffle) when tags or certain props change
   useEffect(() => {
     setData(randomize(props))
