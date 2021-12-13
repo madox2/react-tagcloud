@@ -37,6 +37,7 @@
   "dependencies": {
     "prop-types": "^15.6.2",
     "randomcolor": "^0.6.2",
+    "seedrandom": "^3.0.5",
     "shuffle-array": "^1.0.1"
   },
   "peerDependencies": {

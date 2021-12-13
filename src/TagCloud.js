@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import arrayShuffle from 'shuffle-array'
 import randomColor from 'randomcolor'
+import seedrandom from 'seedrandom'
 
 import { defaultRenderer } from './defaultRenderer'
 import { fontSizeConverter, keys, omit, pick } from './helpers'
@@ -21,16 +22,20 @@ const cloudPropNames = [
   'minSize',
   'colorOptions',
   'disableRandomColor',
+  'randomSeed',
   'randomNumberGenerator',
 ]
-function generateColor(tag, { disableRandomColor, colorOptions }) {
+function generateColor(tag, { disableRandomColor, colorOptions, randomSeed }) {
   if (tag.color) {
     return tag.color
   }
   if (disableRandomColor) {
     return undefined
   }
-  return randomColor(colorOptions)
+  return randomColor({
+    seed: randomSeed && (tag.key || tag.value),
+    ...colorOptions,
+  })
 }
 
 function withTagCloudHandlers(elem, tag, cloudHandlers) {
@@ -59,12 +64,14 @@ function renderTags(props, data) {
 }
 
 function randomize(props) {
-  const { tags, shuffle, randomNumberGenerator } = props
-  const data = tags.map((tag) => ({
+  const { tags, shuffle, randomSeed, randomNumberGenerator } = props
+  const rng = randomSeed ? seedrandom(randomSeed) : randomNumberGenerator
+  const copy = tags.slice()
+  const data = shuffle ? arrayShuffle(copy, { rng }) : copy
+  return data.map((tag) => ({
     tag,
     color: generateColor(tag, props),
   }))
-  return shuffle ? arrayShuffle(data, { rng: randomNumberGenerator }) : data
 }
 
 export function TagCloud(props) {
@@ -92,6 +99,7 @@ TagCloud.propTypes = {
   disableRandomColor: PropTypes.bool,
   renderer: PropTypes.func,
   className: PropTypes.string,
+  randomSeed: PropTypes.any,
   randomNumberGenerator: PropTypes.func,
 }
 

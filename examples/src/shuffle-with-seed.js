@@ -22,18 +22,7 @@ const data = [
   { value: 'NPM', count: 11 },
 ]
 
-// bring your own implementation of rng
-let seed = 1337
-function random() {
-  const x = Math.sin(seed++) * 10000
-  return x - Math.floor(x)
-}
-
+// randomSeed - seed passed to the seeded random number generator
 export default () => (
-  <TagCloud
-    minSize={12}
-    maxSize={35}
-    tags={data}
-    randomNumberGenerator={random}
-  />
+  <TagCloud minSize={12} maxSize={35} tags={data} randomSeed={42} />
 )
