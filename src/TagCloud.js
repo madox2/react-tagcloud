@@ -76,7 +76,7 @@ function randomize(props) {
 
 export function TagCloud(props) {
   const [data, setData] = useState([])
-  const tagsComparison = props.tags.map((t) => t.key || t.value).join(':')
+  const tagsComparison = props.tags.map((t) => t.key + t.value + t.count).join(':')
   // randomize (color, shuffle) when tags or certain props change
   useEffect(() => {
     setData(randomize(props))
