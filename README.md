@@ -57,10 +57,11 @@ const SimpleCloud = () => (
 |`maxSize`              |`Number`  |`true` |Maximal font size (in px) used in cloud|
 |`minSize`              |`Number`  |`true` |Minimal font size (in px) used in cloud|
 |`shuffle`              |`Boolean` |`false`|If true, tags are shuffled. When `tags` are modified, cloud is re-shuffled. Default: `true`|
-|`randomNumberGenerator`|`Function`|`false`|Specifies a custom random number generator that is being used by shuffle algorithm. Default: `Math.random`
 |`colorOptions`         |`Object`  |`false`|Random color options (see [randomColor#options](https://github.com/davidmerfield/randomColor#options))|
 |`disableRandomColor`   |`Boolean` |`false`|If `true`, random color is not used|
+|`randomSeed`           |`Number`  |`false`|Random seed used to shuffle tags and generate color|
 |`renderer`             |`Function`|`false`|Function used to render tag|
+|`randomNumberGenerator`|`Function`|`false`|DEPRECATED, use `randomSeed` instead. Specifies a custom random number generator that is being used by shuffle algorithm. Default: `Math.random`|
 
 *Note:* Furthermore you can pass any other prop and it will be forwarded to the wrapping `<div />` component (e.g. `style`, `className`).
 
