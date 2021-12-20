@@ -25,6 +25,11 @@ const cloudPropNames = [
   'randomSeed',
   'randomNumberGenerator',
 ]
+
+function getTagHashCode(tag) {
+  return tag.key + tag.value + tag.count
+}
+
 function generateColor(tag, { disableRandomColor, colorOptions, randomSeed }) {
   if (tag.color) {
     return tag.color
@@ -33,7 +38,7 @@ function generateColor(tag, { disableRandomColor, colorOptions, randomSeed }) {
     return undefined
   }
   return randomColor({
-    seed: randomSeed && (tag.key || tag.value),
+    seed: randomSeed && `${randomSeed}:${getTagHashCode(tag)}`,
     ...colorOptions,
   })
 }
@@ -76,7 +81,7 @@ function randomize(props) {
 
 export function TagCloud(props) {
   const [data, setData] = useState([])
-  const tagsComparison = props.tags.map((t) => t.key + t.value + t.count).join(':')
+  const tagsComparison = props.tags.map(getTagHashCode).join(':')
   // randomize (color, shuffle) when tags or certain props change
   useEffect(() => {
     setData(randomize(props))
