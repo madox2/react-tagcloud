@@ -28,9 +28,6 @@
     "url": "https://github.com/madox2/react-tagcloud.git"
   },
   "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>__tests__/setupTests.js"
-    ],
     "testRegex": "(/__tests__/.*-test)\\.js?$",
     "testEnvironment": "jsdom"
   },
@@ -52,8 +49,6 @@
     "@typescript-eslint/parser": "^4.0.0",
     "babel-eslint": "^10.0.0",
     "babel-jest": "^27.4.2",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.5.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",

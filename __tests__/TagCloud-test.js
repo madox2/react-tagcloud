@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { mount } from 'enzyme'
+import { create, act } from 'react-test-renderer'
 
 import { TagCloud } from '../src/TagCloud'
 import { expectToMatchSnapshot, render } from './utils'
@@ -55,72 +55,113 @@ describe('TagCloud', () => {
 
   it('should trigger onClick event', () => {
     const onClickSpy = jest.fn()
-    const cloud = mount(
-      <TagCloud
-        minSize={12}
-        maxSize={30}
-        shuffle={false}
-        tags={data}
-        onClick={onClickSpy}
-      />,
-    )
-    const tag3 = cloud.find('.tag-cloud-tag').at(2)
+    let cloud
+    act(() => {
+      cloud = create(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          shuffle={false}
+          tags={data}
+          onClick={onClickSpy}
+        />,
+      )
+    })
+    const tag3 = cloud.root.findAllByProps({ className: 'tag-cloud-tag' })[2]
     expect(tag3).not.toBeUndefined()
-    tag3.simulate('click')
+    const clickEvent = new Event('click')
+    tag3.props.onClick(clickEvent)
     expect(onClickSpy).toHaveBeenCalled()
     expect(onClickSpy).toHaveBeenCalledWith(
       {
         value: 'tag3',
         count: 20,
       },
-      expect.any(Object),
+      clickEvent,
     )
   })
 
   it('should not re-shuffle tags', () => {
     const rng = jest.fn()
-    const cloud = mount(
-      <TagCloud
-        minSize={12}
-        maxSize={30}
-        tags={data}
-        randomNumberGenerator={rng}
-      />,
-    )
+    let cloud
+    act(() => {
+      cloud = create(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
-
-    cloud.setProps({ minSize: 10, tags: data.slice() })
-    cloud.update()
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={10}
+          maxSize={30}
+          tags={data.slice()}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).not.toHaveBeenCalled()
     rng.mockClear()
   })
 
   it('should re-shuffle tags when tags changes', () => {
     const rng = jest.fn()
-    const cloud = mount(
-      <TagCloud
-        minSize={12}
-        maxSize={30}
-        tags={data}
-        randomNumberGenerator={rng}
-      />,
-    )
+    let cloud
+    act(() => {
+      cloud = create(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
 
-    cloud.setProps({ tags: data.slice().concat([{ value: 'tag5', count: 3 }]) })
-    cloud.update()
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data.slice().concat([{ value: 'tag5', count: 3 }])}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
 
-    cloud.setProps({ tags: data })
-    cloud.update()
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
 
-    cloud.setProps({ tags: data.slice().reverse() })
-    cloud.update()
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data.slice().reverse()}
+          randomNumberGenerator={rng}
+        />,
+      )
+    })
     expect(rng).toHaveBeenCalled()
     rng.mockClear()
   })
