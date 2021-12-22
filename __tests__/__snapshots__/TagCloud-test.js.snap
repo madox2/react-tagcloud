@@ -7,25 +7,25 @@ exports[`TagCloud should render not shuffled tags 1`] = `
   >
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 30px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 110, 136); font-size: 30px;"
     >
       tag1
     </span>
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 22px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 110, 136); font-size: 22px;"
     >
       tag2
     </span>
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 26px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(209, 14, 192); font-size: 26px;"
     >
       tag3
     </span>
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 12px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 114, 103); font-size: 12px;"
     >
       tag4
     </span>
@@ -40,25 +40,25 @@ exports[`TagCloud should render tags with default renderer 1`] = `
   >
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 12px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 114, 103); font-size: 12px;"
     >
       tag4
     </span>
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 26px;"
-    >
-      tag3
-    </span>
-    <span
-      class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 22px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 110, 136); font-size: 22px;"
     >
       tag2
     </span>
     <span
       class="tag-cloud-tag"
-      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: red; font-size: 30px;"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(209, 14, 192); font-size: 26px;"
+    >
+      tag3
+    </span>
+    <span
+      class="tag-cloud-tag"
+      style="margin: 0px 3px; vertical-align: middle; display: inline-block; color: rgb(239, 110, 136); font-size: 30px;"
     >
       tag1
     </span>

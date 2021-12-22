@@ -5,15 +5,6 @@ import { create, act } from 'react-test-renderer'
 import { TagCloud } from '../src/TagCloud'
 import { expectToMatchSnapshot, render } from './utils'
 
-jest.mock('shuffle-array', () => (arr, opts = {}) => {
-  opts.rng && opts.rng()
-  return arr.slice().reverse()
-})
-
-jest.mock('randomcolor', () => (arr, opts = {}) => {
-  return 'red'
-})
-
 describe('TagCloud', () => {
   const data = [
     { value: 'tag1', count: 25 },
@@ -22,13 +13,30 @@ describe('TagCloud', () => {
     { value: 'tag4', count: 3 },
   ]
 
+  it('should render simple cloud', () => {
+    let cloud
+    act(() => {
+      cloud = create(<TagCloud minSize={12} maxSize={30} tags={data} />)
+    })
+    const tags = cloud.root.findAllByProps({ className: 'tag-cloud-tag' })
+    expect(tags.length).toBe(data.length)
+  })
+
   it('should render tags with default renderer', () => {
-    expectToMatchSnapshot(<TagCloud minSize={12} maxSize={30} tags={data} />)
+    expectToMatchSnapshot(
+      <TagCloud minSize={12} maxSize={30} tags={data} randomSeed={42} />,
+    )
   })
 
   it('should render not shuffled tags', () => {
     expectToMatchSnapshot(
-      <TagCloud shuffle={false} minSize={12} maxSize={30} tags={data} />,
+      <TagCloud
+        shuffle={false}
+        minSize={12}
+        maxSize={30}
+        tags={data}
+        randomSeed={42}
+      />,
     )
   })
 
@@ -82,7 +90,7 @@ describe('TagCloud', () => {
   })
 
   it('should not re-shuffle tags', () => {
-    const rng = jest.fn()
+    const rng = jest.fn(() => 0.5)
     let cloud
     act(() => {
       cloud = create(
@@ -111,7 +119,7 @@ describe('TagCloud', () => {
   })
 
   it('should re-shuffle tags when tags changes', () => {
-    const rng = jest.fn()
+    const rng = jest.fn(() => 0.5)
     let cloud
     act(() => {
       cloud = create(
@@ -166,8 +174,68 @@ describe('TagCloud', () => {
     rng.mockClear()
   })
 
+  it('should shuffle with seed', () => {
+    const renderer = (tag, size, color) => (
+      <span key={tag.value} className="tag-cloud-tag">
+        {`${tag.value}:${color}`}
+      </span>
+    )
+    let cloud
+    act(() => {
+      cloud = create(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomSeed={42}
+          renderer={renderer}
+        />,
+      )
+    })
+
+    const tagsSeed42 = cloud.root
+      .findAllByProps({ className: 'tag-cloud-tag' })
+      .map((i) => i.props.children)
+
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomSeed={43}
+          renderer={renderer}
+        />,
+      )
+    })
+
+    const tagsSeed43 = cloud.root
+      .findAllByProps({ className: 'tag-cloud-tag' })
+      .map((i) => i.props.children)
+
+    expect(tagsSeed42).not.toEqual(tagsSeed43)
+
+    act(() => {
+      cloud.update(
+        <TagCloud
+          minSize={12}
+          maxSize={30}
+          tags={data}
+          randomSeed={42}
+          renderer={renderer}
+        />,
+      )
+    })
+
+    const tagsSeed42updated = cloud.root
+      .findAllByProps({ className: 'tag-cloud-tag' })
+      .map((i) => i.props.children)
+
+    expect(tagsSeed42).toEqual(tagsSeed42updated)
+  })
+
   it('should use custom rng', () => {
-    const rng = jest.fn()
+    const rng = jest.fn(() => 0.5)
     render(
       <TagCloud
         minSize={12}

@@ -87,6 +87,7 @@ export function TagCloud(props) {
     setData(randomize(props))
   }, [
     props.colorOptions,
+    props.randomSeed,
     props.shuffle,
     props.disableRandomColor,
     tagsComparison,
