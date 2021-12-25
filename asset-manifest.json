@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/react-tagcloud/static/css/main.1eaf227e.chunk.css",
-    "main.js": "/react-tagcloud/static/js/main.33418c45.chunk.js",
-    "main.js.map": "/react-tagcloud/static/js/main.33418c45.chunk.js.map",
-    "runtime-main.js": "/react-tagcloud/static/js/runtime-main.d6961da1.js",
-    "runtime-main.js.map": "/react-tagcloud/static/js/runtime-main.d6961da1.js.map",
-    "static/js/2.e89d2d31.chunk.js": "/react-tagcloud/static/js/2.e89d2d31.chunk.js",
-    "static/js/2.e89d2d31.chunk.js.map": "/react-tagcloud/static/js/2.e89d2d31.chunk.js.map",
+    "main.css": "/react-tagcloud/static/css/main.f638922c.css",
+    "main.js": "/react-tagcloud/static/js/main.9a98fc9c.js",
+    "static/media/logo.svg": "/react-tagcloud/static/media/logo.103b5fa18196d5665a7e.svg",
     "index.html": "/react-tagcloud/index.html",
-    "precache-manifest.a4d48f3a288ac7bd8b90de26188df2c4.js": "/react-tagcloud/precache-manifest.a4d48f3a288ac7bd8b90de26188df2c4.js",
-    "service-worker.js": "/react-tagcloud/service-worker.js",
-    "static/css/main.1eaf227e.chunk.css.map": "/react-tagcloud/static/css/main.1eaf227e.chunk.css.map",
-    "static/js/2.e89d2d31.chunk.js.LICENSE.txt": "/react-tagcloud/static/js/2.e89d2d31.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/react-tagcloud/static/media/logo.5d5d9eef.svg"
+    "main.f638922c.css.map": "/react-tagcloud/static/css/main.f638922c.css.map",
+    "main.9a98fc9c.js.map": "/react-tagcloud/static/js/main.9a98fc9c.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.d6961da1.js",
-    "static/js/2.e89d2d31.chunk.js",
-    "static/css/main.1eaf227e.chunk.css",
-    "static/js/main.33418c45.chunk.js"
+    "static/css/main.f638922c.css",
+    "static/js/main.9a98fc9c.js"
   ]
 }
