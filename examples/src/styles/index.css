@@ -51,6 +51,7 @@ article > div {
 }
 .detail-wrapper {
   margin-top: 10px;
+  font-size: 1.2em;
 }
 .detail-wrapper a {
   color: #4b6d75;
@@ -62,7 +63,7 @@ article > div {
 .cloud-wrapper {
   border: 1px solid Gainsboro;
   text-align: center;
-  background-color: #3e3833;
+  background-color: #282c34;
   padding: 20px;
 }
 a.github-link {
