@@ -1,7 +1,14 @@
+html {
+  --header-text-color: GhostWhite;
+  --text-color: #d9d9d9;
+  --border-color: #3c3e40;
+  --body-color: #292929;
+  --section-color: #282c34;
+}
 body {
   font-family: 'Open Sans', sans-serif;
-  color: #4b6d75;
-  background-color: GhostWhite;
+  color: var(--text-color);
+  background-color: var(--body-color);
   margin: 0;
   padding: 0;
 }
@@ -10,25 +17,25 @@ main {
   padding: 0;
 }
 header {
-  background-color: #4b6d75;
+  background-color: var(--section-color);
   min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: GhostWhite;
+  color: var(--header-text-color);
 }
 footer {
-  background-color: #4b6d75;
+  background-color: var(--section-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: GhostWhite;
+  color: var(--header-text-color);
 }
 footer a {
   text-decoration: none;
-  color: GhostWhite;
+  color: var(--text-color);
 }
 footer a:hover {
   text-decoration: underline;
@@ -38,11 +45,11 @@ header > h3 {
   margin: 5px;
 }
 section {
-  background-color: White;
+  background-color: var(--body-color);
   padding-bottom: 40px;
 }
 article {
-  border-top: 1px solid Gainsboro;
+  border-top: 1px solid var(--border-color);
   padding: 15px 10px 10px 10px;
 }
 article > div {
@@ -54,21 +61,21 @@ article > div {
   font-size: 1.2em;
 }
 .detail-wrapper a {
-  color: #4b6d75;
+  color: var(--text-color);
   text-decoration: none;
 }
 .code-preview {
-  border: 1px solid Gainsboro;
+  border: 1px solid var(--border-color);
 }
 .cloud-wrapper {
-  border: 1px solid Gainsboro;
+  border: 1px solid var(--border-color);
   text-align: center;
-  background-color: #282c34;
+  background-color: var(--section-color);
   padding: 20px;
 }
 a.github-link {
   margin-left: 7px;
-  color: GhostWhite;
+  color: var(--text-color);
 }
 /* styles needed by examples */
 @keyframes blinker {

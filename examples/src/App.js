@@ -105,7 +105,9 @@ class Example extends React.Component {
           </div>
           <div className="detail-wrapper">
             <a href="#" onClick={this.toggleDetail}>
-              {this.state.expanded ? '\u25B2 hide' : '\u25BC show code'}
+              {this.state.expanded
+                ? '\u25BC source code'
+                : '\u25B6 source code'}
             </a>
             {this.state.expanded && this.state.fetched && (
               <Highlight className="javascript code-preview">
