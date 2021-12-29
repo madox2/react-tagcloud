@@ -109,9 +109,9 @@ class Example extends React.Component {
                 ? '\u25BC source code'
                 : '\u25B6 source code'}
             </a>
-            {this.state.expanded && this.state.fetched && (
+            {this.state.expanded && (
               <Highlight className="javascript code-preview">
-                {this.state.detail}
+                {this.state.fetched ? this.state.detail : 'Loading...'}
               </Highlight>
             )}
           </div>
