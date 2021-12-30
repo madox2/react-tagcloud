@@ -49,6 +49,49 @@ class App extends React.Component {
           </h3>
         </header>
         <section>
+          <article>
+            <div>
+              <h2>Quickstart</h2>
+              <div className="detail-wrapper">
+                <Highlight className="javascript code-preview">
+                  {`
+npm install react-tagcloud
+                `.trim()}
+                </Highlight>
+              </div>
+              <div className="detail-wrapper">
+                <Highlight className="javascript code-preview">
+                  {`
+const data = [
+  { value: 'JavaScript', count: 38 },
+  { value: 'React', count: 30 },
+  { value: 'Nodejs', count: 28 },
+  { value: 'Express.js', count: 25 },
+  { value: 'HTML5', count: 33 },
+  { value: 'MongoDB', count: 18 },
+  { value: 'CSS3', count: 20 },
+]
+
+const SimpleCloud = () => (
+  <TagCloud
+    minSize={12}
+    maxSize={35}
+    tags={data}
+  />
+)
+                `.trim()}
+                </Highlight>
+              </div>
+              <p>
+                Documentation:{' '}
+                <a href="https://github.com/madox2/react-tagcloud">
+                  https://github.com/madox2/react-tagcloud
+                </a>
+              </p>
+            </div>
+          </article>
+        </section>
+        <section>
           {examples.map((e) => (
             <Example
               title={e.title}

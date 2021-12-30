@@ -33,11 +33,11 @@ footer {
   justify-content: center;
   color: var(--header-text-color);
 }
-footer a {
+a {
   text-decoration: none;
   color: var(--text-color);
 }
-footer a:hover {
+a:hover {
   text-decoration: underline;
 }
 header > h1,
