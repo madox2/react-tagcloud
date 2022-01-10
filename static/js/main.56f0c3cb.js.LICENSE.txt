@@ -4,6 +4,12 @@ object-assign
 @license MIT
 */
 
+/*!
+ * github-buttons v2.21.1
+ * (c) 2021 なつき
+ * @license BSD-2-Clause
+ */
+
 /** @license React v0.20.2
  * scheduler.production.min.js
  *
