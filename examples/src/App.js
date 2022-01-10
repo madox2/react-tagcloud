@@ -2,6 +2,7 @@
 import React from 'react'
 import Highlight from 'react-highlight'
 import analytics from './analytics'
+import GitHubButton from 'react-github-btn'
 
 const BASE_URL =
   'https://raw.githubusercontent.com/madox2/react-tagcloud/master/examples/src/'
@@ -36,16 +37,15 @@ class App extends React.Component {
           </h3>
 
           <h3>
-            <a
+            <GitHubButton
               className="github-button"
               href="https://github.com/madox2/react-tagcloud"
               data-icon="octicon-star"
-              data-size="large"
               data-show-count="true"
               aria-label="Star madox2/react-tagcloud on GitHub"
             >
               Star
-            </a>
+            </GitHubButton>
           </h3>
         </header>
         <section>
