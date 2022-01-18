@@ -103,7 +103,7 @@ const SimpleCloud = () => (
         </section>
         <footer>
           <p>
-            2020 <a href="http://madox2.poriadne.sk">madox2</a>
+            2022 <a href="http://madox2.poriadne.sk">madox2</a>
           </p>
         </footer>
       </main>
