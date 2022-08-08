@@ -13,6 +13,10 @@ const handlersPropNames = [
   'onMouseMove',
   'onMouseOver',
   'onMouseOut',
+  // rn handlers
+  'onPress',
+  'onPressIn',
+  'onPressOut',
 ]
 const cloudPropNames = [
   'tags',
@@ -46,9 +50,11 @@ function generateColor(tag, { disableRandomColor, colorOptions, randomSeed }) {
 function withTagCloudHandlers(elem, tag, cloudHandlers) {
   const origHandlers = pick(elem.props, handlersPropNames)
   const props = keys(cloudHandlers).reduce((acc, handlerName) => {
-    acc[handlerName] = (e) => {
-      cloudHandlers[handlerName] && cloudHandlers[handlerName](tag, e)
-      origHandlers[handlerName] && origHandlers(e)
+    if (cloudHandlers[handlerName] || origHandlers[handlerName]) {
+      acc[handlerName] = (e) => {
+        cloudHandlers[handlerName] && cloudHandlers[handlerName](tag, e)
+        origHandlers[handlerName] && origHandlers(e)
+      }
     }
     return acc
   }, {})
@@ -93,7 +99,8 @@ export function TagCloud(props) {
     tagsComparison,
   ])
   const other = omit(props, [...cloudPropNames, ...handlersPropNames])
-  return <div {...other}>{renderTags(props, data)}</div>
+  const Container = props.containerComponent
+  return <Container {...other}>{renderTags(props, data)}</Container>
 }
 
 TagCloud.propTypes = {
@@ -107,6 +114,7 @@ TagCloud.propTypes = {
   className: PropTypes.string,
   randomSeed: PropTypes.any,
   randomNumberGenerator: PropTypes.func,
+  containerComponent: PropTypes.elementType,
 }
 
 TagCloud.defaultProps = {
@@ -114,4 +122,5 @@ TagCloud.defaultProps = {
   shuffle: true,
   className: 'tag-cloud',
   colorOptions: {},
+  containerComponent: 'div',
 }

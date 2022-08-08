@@ -45,6 +45,30 @@ const SimpleCloud = () => (
 )
 ```
 
+### React Native
+
+In react native projects import tag cloud from the package relative path `react-tagcloud/rn`.
+
+```javascript
+import React from 'react';
+
+import { Alert } from 'react-native';
+import { TagCloud } from 'react-tagcloud/rn'
+
+const data = [
+  // ...
+]
+
+const SimpleCloud = () => (
+  <TagCloud
+    minSize={12}
+    maxSize={35}
+    tags={data}
+    onPress={tag => Alert.alert(`'${tag.value}' was selected!`)}
+  />
+)
+```
+
 ## API
 
 ### Options
