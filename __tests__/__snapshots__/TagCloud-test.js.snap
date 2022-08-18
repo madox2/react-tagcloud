@@ -4,7 +4,6 @@ exports[`TagCloud should render not shuffled tags 1`] = `
 <div>
   <div
     class="tag-cloud"
-    containercomponent="div"
   >
     <span
       class="tag-cloud-tag"
@@ -38,7 +37,6 @@ exports[`TagCloud should render tags with default renderer 1`] = `
 <div>
   <div
     class="tag-cloud"
-    containercomponent="div"
   >
     <span
       class="tag-cloud-tag"
@@ -72,7 +70,6 @@ exports[`TagCloud should use custom renderer 1`] = `
 <div>
   <div
     class="tag-cloud"
-    containercomponent="div"
   >
     <a
       class="tag-30"

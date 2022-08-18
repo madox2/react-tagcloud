@@ -7761,10 +7761,10 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-tagcloud@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-tagcloud/-/react-tagcloud-2.3.0.tgz#9ca566610cd02db89ba08ec58c003b3cbd42f139"
-  integrity sha512-EVmnPG2VmguEOFivlG83haqGRlD4HhtfyHUvxBeNKXT4+V5ZOkxufEEWrkBkwIo3P8nObPi8j0A5a+TVA5SMSw==
+react-tagcloud@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-tagcloud/-/react-tagcloud-2.3.1.tgz#4e03aa862bca17983b8e9e3690e3ef4a6e00bbaf"
+  integrity sha512-vWnPzx1bmR2ya7WEeqCbZGO8q/x0agOjxnXQGD9jg5OAyLqaKWAfArKypaoUVXYDyjABcZg5BDu8qLC9JRGDbg==
   dependencies:
     prop-types "^15.6.2"
     randomcolor "^0.6.2"
