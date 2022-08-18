@@ -28,6 +28,7 @@ const cloudPropNames = [
   'disableRandomColor',
   'randomSeed',
   'randomNumberGenerator',
+  'containerComponent',
 ]
 
 function getTagHashCode(tag) {
