@@ -22,6 +22,7 @@ const cloudPropNames = [
   'tags',
   'shuffle',
   'renderer',
+  'rendererProps',
   'maxSize',
   'minSize',
   'colorOptions',
@@ -63,14 +64,14 @@ function withTagCloudHandlers(elem, tag, cloudHandlers) {
 }
 
 function renderTags(props, data) {
-  const { minSize, maxSize } = props
+  const { minSize, maxSize, rendererProps } = props
   const counts = data.map(({ tag }) => tag.count),
     min = Math.min(...counts),
     max = Math.max(...counts)
   const cloudHandlers = pick(props, handlersPropNames)
   return data.map(({ tag, color }) => {
     const fontSize = fontSizeConverter(tag.count, min, max, minSize, maxSize)
-    const elem = props.renderer(tag, fontSize, color)
+    const elem = props.renderer(tag, fontSize, color, rendererProps)
     return withTagCloudHandlers(elem, tag, cloudHandlers)
   })
 }
@@ -101,7 +102,7 @@ export function TagCloud(props) {
   ])
   const other = omit(props, [...cloudPropNames, ...handlersPropNames])
   const Container = props.containerComponent
-  return <Container {...other}>{renderTags(props, data)}</Container>
+  return <Container {...other}>{renderTags(props, data, props.rendererProps)}</Container>
 }
 
 TagCloud.propTypes = {
@@ -112,6 +113,7 @@ TagCloud.propTypes = {
   colorOptions: PropTypes.object,
   disableRandomColor: PropTypes.bool,
   renderer: PropTypes.func,
+  rendererProps: PropTypes.object,
   className: PropTypes.string,
   randomSeed: PropTypes.any,
   randomNumberGenerator: PropTypes.func,
